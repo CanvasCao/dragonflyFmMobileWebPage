@@ -74,7 +74,6 @@
         //paras................................
         var index = 0;
         var indexArr = [4, 0, 1];
-        var len = $pages.length;
         var ifLock = false; //节流标志
         var startY = 0;
         var dY = 0;
@@ -86,7 +85,7 @@
         //bindEvent.....................................
         $(document)[0].addEventListener('touchstart', function (e) {
             e.preventDefault();
-            if (ifLock)return;	//截流
+            ifLock = true;
 
             console.log(indexArr);
             var touch = e.touches[0];
@@ -96,15 +95,17 @@
 
         $(document)[0].addEventListener("touchmove", function (e) {
             e.preventDefault();	//阻止默认事件
-            if (ifLock) return;	//截流
+            if (ifLock) {
 
-            var touch = e.touches[0];
-            dY = touch.pageY - startY;	//差值
+                var touch = e.touches[0];
+                dY = touch.pageY - startY;	//差值
 
 //            console.log(dY);
-            if (dY < 0) {
-            $pages.eq(indexArr[1]).velocity({"translateY": dY}, 0, 'linear');
-            $pages.eq(indexArr[2]).velocity({"translateY": $(window).height() + dY}, 0, 'linear');
+                if (dY < 0) {
+                    $pages.eq(indexArr[1]).velocity({"translateY": dY}, 0, 'linear');
+                    $pages.eq(indexArr[2]).velocity({"translateY": $(window).height() + dY}, 0, 'linear');
+                }
+
             }
 
         }, false);
@@ -112,30 +113,27 @@
 
         $(document)[0].addEventListener("touchend", function (e) {
             e.preventDefault();
-            if (ifLock) return;
-
-            //手指一抬就截流：
-            ifLock = true;
-            setTimeout(function () {
-                ifLock = false;
-            }, 1000);
-
-
-            if (dY < 0) {
-                $pages.eq(indexArr[1]).velocity({"translateY": -$(window).height()}, 500, 'linear');
-                //用户手指向上滑动，并且有下一个页面
-                $pages.eq(indexArr[2]).velocity({"translateY": 0}, 500, 'linear', function () {
-                    //验收
-                    index = (index + 1 > ($pages.length - 1) ) ? 0 : index + 1;
-                    resetIndexArr();
-                    resetDy();
-                });
+            if (ifLock) {
+                if (dY < 0) {
+                    $pages.eq(indexArr[1]).velocity({"translateY": -$(window).height()}, 500, 'linear');
+                    //用户手指向上滑动，并且有下一个页面
+                    $pages.eq(indexArr[2]).velocity({"translateY": 0}, 500, 'linear', function () {
+                        //验收
+                        index = (index + 1 > ($pages.length - 1) ) ? 0 : index + 1;
+                        resetIndexArr();
+                        resetDy();
+                        ifLock = false;
+                    });
+                }
+                else if (dY > 0) {
+                    setTimeout(function () {
+                        resetIndexArr();
+                        resetDy();
+                        dY = 0;
+                    }, 500)
+                }
             }
-            else if (dY > 0) {
-                resetIndexArr();
-                resetDy();
-                dY = 0;
-            }
+
         }, false);
 
 
