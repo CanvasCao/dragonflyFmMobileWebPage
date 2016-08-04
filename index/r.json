@@ -1,0 +1,41 @@
+{
+  "images": [
+    {
+      "name": "bg1",
+      "src": "img/bg/1.png"
+    },
+    {
+      "name": "bg2",
+      "src": "img/bg/2.png"
+    },
+    {
+      "name": "bg3",
+      "src": "img/bg/3.png"
+    },
+    {
+      "name": "bg4",
+      "src": "img/bg/4.png"
+    },
+    {
+      "name": "bg5",
+      "src": "img/bg/5.png"
+    },
+    {
+      "name": "bg6",
+      "src": "img/bg/6.png"
+    },
+    {
+      "name": "sun",
+      "src": "img/icon/1/sun.png"
+    },
+    {
+      "name": "tree",
+      "src": "img/icon/1/tree.png"
+    }
+    ,{
+      "name": "page1bg1",
+      "src": "img/page1/1.png"
+
+    }
+  ]
+}

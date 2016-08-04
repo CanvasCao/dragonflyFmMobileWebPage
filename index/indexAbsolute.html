@@ -6,16 +6,17 @@
           content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"/>
 
     <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="css/loading.css"/>
     <style type="text/css">
+
         #container {
             position: absolute;
             width: 100%;
             height: 100%;
             top: 0;
             left: 0;
-            /*box-sizing: border-box;*/
-            /*border: 20px solid #000;*/
             overflow: hidden;
+            opacity: 0;
         }
 
         .page {
@@ -26,7 +27,7 @@
             position: absolute;
             /*perspective: 1000px;*/
             overflow: hidden;
-            background-color: white;
+            background-color: #eee;
         }
 
         .up {
@@ -45,7 +46,8 @@
             border: 1px solid #000;
         }
 
-        .page3 > img {
+        /*加载的icon的CSS*/
+        .page4 > img {
             display: block;
             width: 100px;
             height: 100px;
@@ -56,7 +58,7 @@
             opacity: 0;
         }
 
-        .page3 .txt {
+        .page4 .txt {
             font-size: 40px;
             color: #fff;
             opacity: 0;
@@ -64,19 +66,24 @@
             font-weight: bold;
         }
 
-        .page3 .des {
+        .page4 .des {
             font-size: 22px;
             color: #fff;
             opacity: 0;
             position: absolute;
         }
+
+
     </style>
 
     <title></title>
 </head>
 <body>
+
 <div id='container'>
     <div class='page page1'>
+        <img src="img/page1/1.png" width="100%"/>
+
         <div class='up'>1</div>
         <div class='down'>1</div>
     </div>
@@ -89,7 +96,6 @@
         <div class='down'>3</div>
     </div>
     <div class='page page4'>
-        123123
         <div class='up'>4</div>
         <div class='down'>4</div>
     </div>
@@ -97,125 +103,80 @@
         <div class='up'>5</div>
         <div class='down'>5</div>
     </div>
+</div>
+<div id='loading'>
+    <img class='loadingLogo' src="img/logo.png"/>
+    <img class='loadingDragonfly' src="img/flydragon.png"/>
 
+    <div class='loadingCount'>0%</div>
 </div>
 
 <script src="http://apps.bdimg.com/libs/jquery/1.8.3/jquery.min.js"></script>
 <script src='js/tool/velocity.min.js'></script>
 <script src='js/tool/velocity.ui.js'></script>
 <script src='js/globalManager/globalManager.js'></script>
-<script>
-    //jqObj................................
-    GM.$up = $('.up');
-    GM.$down = $('.down');
-    GM.$pages = $('.page');
-    GM.pageNum = GM.$pages.length;
-
-    //paras................................
-    GM.pageIndex = 0; //索引从0开始
-    GM.isConVelocited = false;
-    GM.winH = $(window).height();
-    GM.winW = $(window).width();
-
-    //initDy........................................
-    GM.$pages.velocity({"translateY": GM.winH}, 0, 'linear');
-    GM.$pages.eq(GM.pageIndex).velocity({"translateY": 0}, 0, 'linear');
-
-
-    //bindClickEvent..........................................
-    GM.$up.click(function (e) {
-        var e = e || event;
-        if (GM.isConVelocited) {
-            return;
-        }
-        var oldIndex = GM.pageIndex;
-
-        GM.pageIndex--;
-        GM.pageIndex = GM.pageIndex < 0 ? 0 : GM.pageIndex;//验收
-
-        DoPageChange(oldIndex, GM.pageIndex, 1000);
-    })
-    GM.$down.click(function (e) {
-        var e = e || event;
-        if (GM.isConVelocited) {
-            return;
-        }
-        var oldIndex = GM.pageIndex;
-
-        GM.pageIndex++;
-        GM.pageIndex = GM.pageIndex >= GM.pageNum ? ( GM.pageNum - 1) : GM.pageIndex;//验收
-
-        DoPageChange(oldIndex, GM.pageIndex, 1000);
-    })
-
-
-    function DoPageChange(oldIndex, pageIndex, duration) {
-
-        if (oldIndex == pageIndex) {
-            return;
-        }
-
-        GM.isConVelocited = true;
-        var duration = duration;
-        var ease = 'easeInOutQuart';
-
-        //判断当前的page是上移还是下移
-        var dir = (oldIndex < pageIndex) ? 'up' : 'down'; //-1 1
-
-        //上移的代码
-        if (dir == 'up') {
-            GM.$pages.eq(oldIndex).delay(0).velocity({translateY: -GM.winH}, duration, ease);
-            GM.$pages.eq(pageIndex).delay(0).velocity({translateY: GM.winH}, 0).velocity({translateY: 0}, duration, ease);
-        }
-        //下移的代码
-        else {
-            GM.$pages.eq(oldIndex).delay(0).velocity({translateY: GM.winH}, duration, ease);
-            GM.$pages.eq(pageIndex).delay(0).velocity({translateY: -GM.winH}, 0).velocity({translateY: 0}, duration, ease);
-        }
-
-        //翻页截流.......................................
-        setTimeout(function () {
-            GM.isConVelocited = false;
-        }, 1500)
-
-        //进场入场动画...................................
-        AnimateInArr[pageIndex]();
-        AnimateOutArr[oldIndex]();
-
-    }
-    window.DoPageChange = DoPageChange;
-
-
-    var AnimateInArr =
-            [
-                function () {
-                },
-                function () {
-                    page2In();
-                },
-                function () {
-                },
-                function () {
-                },
-                function () {
-                },
-            ];
-    var AnimateOutArr =
-            [
-                function () {
-                },
-                function () {
-                },
-                function () {
-                },
-                function () {
-                },
-                function () {
-                },
-            ];
-
-</script>
+<script src='js/resources/resources.js'></script>
+<script src='js/page/index.js'></script>
+<script src='js/page/page1.js'></script>
 <script src='js/page/page2.js'></script>
 <script src='js/page/page3.js'></script>
+<script src='js/page/page4.js'></script>
+
+<script>
+    $(function () {
+        var $loading = $('#loading');
+        $loading.velocity({opacity: 1}, 2000, 'ease', function () {
+            afterLoading();
+        });
+
+
+        function afterLoading() {
+            var $loadingDragonfly = $loading.find('.loadingDragonfly');
+            var $loadingCount = $loading.find('.loadingCount');
+            var $loadingLogo = $loading.find('.loadingLogo');
+            var timer = null;
+            var ease = 'easeInOutQuart';
+
+
+            //蜻蜓飞入开始加载...................
+            $loadingDragonfly
+                    .velocity({top: '0%', left: '0%'}, 0)
+                    .velocity({top: '20%', left: '30%'}, 750, ease)
+                    .velocity({top: '50%', left: '50%'}, 750, ease, function () {
+                        timer = setInterval(function () {
+                            $loadingLogo.velocity({
+                                rotateZ: '-=60',
+                            }, {duration: 200, easing: 'linear'});
+                        }, 250)
+                        $loadingDragonfly.velocity({
+                            translateX: 1.5,
+                        }, {dalay: 50, duration: 200, easing: ease, loop: true});
+
+
+                        var resource = new Resources('r.json', function (alreayLoadNumber, totalNum, imgsArray) {
+                            if (alreayLoadNumber != totalNum) {
+                                $loadingCount.html(parseInt(alreayLoadNumber / totalNum * 100) + '%');
+                            }
+                            else if (alreayLoadNumber == totalNum) {
+
+                                $('#container').velocity({opacity: 1}, 1000, ease, function () {
+                                    $loadingCount.html('100%');
+                                    clearInterval(timer);//logo停
+                                    $loadingDragonfly.velocity('stop');
+
+                                    setTimeout(function () {
+                                        $loading.delay(20).velocity({translateY: -$(window).height()}, 1000, ease);
+
+                                        DoPageChange(0);
+                                    }, 2000)
+                                });
+                            }
+                        })
+                    });
+
+        }
+
+    })
+</script>
 </body>
 </html>
