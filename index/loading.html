@@ -23,7 +23,8 @@
         var $div = $('#div');
         $div.html('加载');
 
-        var resource = new Resources('r.json', function (alreayLoadNumber, totalNum, imgsArray) {
+
+        var resource = new Resources('package.json', function (alreayLoadNumber, totalNum, imgsArray) {
             if (alreayLoadNumber != totalNum) {
                 $div.html('加载' + alreayLoadNumber + '/' + totalNum);
             }

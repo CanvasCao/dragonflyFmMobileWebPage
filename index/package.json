@@ -1,0 +1,104 @@
+{
+  "images": [
+    {
+      "name": "fd1",
+      "src": "img/flydragon/1.png"
+    },
+    {
+      "name": "fd2",
+      "src": "img/flydragon/2.png"
+    },
+    {
+      "name": "fd3",
+      "src": "img/flydragon/3.png"
+    },
+    {
+      "name": "fd4",
+      "src": "img/flydragon/4.png"
+    },
+    {
+      "name": "bg1",
+      "src": "img/bg/1.png"
+    },
+    {
+      "name": "bg2",
+      "src": "img/bg/2.png"
+    },
+    {
+      "name": "bg3",
+      "src": "img/bg/3.png"
+    },
+    {
+      "name": "bg4",
+      "src": "img/bg/4.png"
+    },
+    {
+      "name": "bg5",
+      "src": "img/bg/5.png"
+    },
+    {
+      "name": "bg6",
+      "src": "img/bg/6.png"
+    },
+    {
+      "name": "sun",
+      "src": "img/icon/1/sun.png"
+    },
+    {
+      "name": "bgSky",
+      "src": "img/bg/bgSky.png"
+    },
+    {
+      "name": "bgGround",
+      "src": "img/bg/bgGround.png"
+    },
+    {
+      "name": "p1s1",
+      "src": "img/page1/p1s1.png"
+    },
+    {
+      "name": "p1s2",
+      "src": "img/page1/p1s2.png"
+    },
+    {
+      "name": "p1s3",
+      "src": "img/page1/p1s3.png"
+    },
+    {
+      "name": "suitcase",
+      "src": "img/page1/suitcase.png"
+    },
+    {
+      "name": "p2s0",
+      "src": "img/page2/p2s0.png"
+    },
+    {
+      "name": "p2s1",
+      "src": "img/page2/p2s1.png"
+    },
+    {
+      "name": "p2s2",
+      "src": "img/page2/p2s2.png"
+    },
+    {
+      "name": "p2s3",
+      "src": "img/page2/p2s3.png"
+    },
+    {
+      "name": "p2s4",
+      "src": "img/page2/p2s4.png"
+    },
+    {
+      "name": "p2s5",
+      "src": "img/page2/p2s5.png"
+    },
+    {
+      "name": "p2s6",
+      "src": "img/page2/p2s6.png"
+    },
+    {
+      "name": "pshou",
+      "src": "img/page2/shou.png"
+    }
+  ]
+}

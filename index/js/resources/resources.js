@@ -39,6 +39,10 @@ Resources.prototype = {
                     }
                 })
 
+            },
+            error:function(){
+                console.log('ERROR');
+
             }
         })
     }

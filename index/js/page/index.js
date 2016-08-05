@@ -5,11 +5,13 @@ GM.$down = $('.down');
 GM.$pages = $('.page');
 GM.pageNum = GM.$pages.length;
 
+
 //paras................................
 GM.pageIndex = null; //索引从0开始
 GM.isConVelocited = false;
 GM.winH = $(window).height();
 GM.winW = $(window).width();
+GM.RATE = GM.winH / 736;
 
 //initDy........................................
 GM.$pages.velocity({"translateY": GM.winH}, 0, 'linear');
@@ -39,7 +41,7 @@ function DoPageChange(newIndex, duration) {
 
     GM.pageIndex = newIndex;
     GM.isConVelocited = true;
-    var duration = duration || 1000;
+    var duration = duration || 800;
     var ease = 'easeInOutQuart';
 
     //判断当前的page是上移还是下移
@@ -63,13 +65,15 @@ function DoPageChange(newIndex, duration) {
     //翻页截流.......................................
     setTimeout(function () {
         GM.isConVelocited = false;
-    }, 1500)
 
-    //进场入场动画...................................
-    if (AnimateOutArr[oldIndex]) {
-        AnimateOutArr[oldIndex]();
-    }
-    AnimateInArr[GM.pageIndex]();
+
+        //进场入场动画...................................
+        if (AnimateOutArr[oldIndex]) {
+            AnimateOutArr[oldIndex]();
+        }
+        AnimateInArr[GM.pageIndex]();
+    }, 800)
+
 
 }
 window.DoPageChange = DoPageChange;

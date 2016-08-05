@@ -26,3 +26,19 @@ input, button, select, textarea {
     -ms-user-select: text;
     user-select: text;
 }
+
+.bgSky {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    width: 80%;
+    opacity: 0.5;
+}
+
+.bgGround {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    opacity: 0.5;
+
+}

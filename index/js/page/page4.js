@@ -7,6 +7,7 @@
     var picNum;
     var ease = 'easeInOutQuart';
 
+
     //createDom...............
     function CreateDom() {
         var str = "<div class='section'>" +
@@ -101,10 +102,8 @@
     }
 
 
-
-
     function In(num) {
-        picNum = num||1;
+        picNum = num || 1;
         //动态设置图片...............
         $page.find('.secImg').attr('src', 'img/bg/' + picNum + '.png');
 
@@ -117,7 +116,7 @@
 
             //第三页换第四页............
             setTimeout(function () {
-                DoPageChange(GM.pageIndex+1);
+                DoPageChange(GM.pageIndex + 1);
             }, 5000)
         });
     }

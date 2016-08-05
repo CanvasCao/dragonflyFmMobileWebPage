@@ -6,16 +6,17 @@
     top: 0;
     left: 0;
     opacity: 0;
-    background-image: linear-gradient(to top, #171c33, #2e48aa);
+    /*background-image: linear-gradient(to top, #171c33, #2e48aa);*/
 }
 
 .loadingDragonfly {
     position: absolute;
     /*top: 50%;*/
     /*left: 50%;*/
-    margin-left: -43px;
+    margin-left: -12px;
     margin-top: -74px;
     width: 50px;
+    opacity: 0.8;
 }
 
 .loadingLogo {
@@ -29,7 +30,7 @@
 }
 
 .loadingCount {
-    color: #bbb;
+    color: #333;
     font-size: 12px;
     width: 100px;
     height: 100px;

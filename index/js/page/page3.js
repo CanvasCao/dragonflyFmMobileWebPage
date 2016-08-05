@@ -6,6 +6,8 @@
     var winH = GM.winH;
     var winW = GM.winW;
 
+
+
     //createDom...............
     function CreateDom() {
         var txtArr = ['海滨海岛', '高原圣地', '户外探险', '时尚都市', '古镇水乡', '乡村田园'];

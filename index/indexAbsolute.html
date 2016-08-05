@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="css/main.css"/>
     <link rel="stylesheet" href="css/loading.css"/>
+    <link rel="stylesheet" href="css/page2.css"/>
     <style type="text/css">
 
         #container {
@@ -27,7 +28,6 @@
             position: absolute;
             /*perspective: 1000px;*/
             overflow: hidden;
-            background-color: #eee;
         }
 
         .up {
@@ -82,14 +82,13 @@
 
 <div id='container'>
     <div class='page page1'>
-        <img src="img/page1/1.png" width="100%"/>
-
-        <div class='up'>1</div>
-        <div class='down'>1</div>
+        <!--<img src="img/background/1.png" width="100%" />-->
+        <!--<div class='up'>1</div>-->
+        <!--<div class='down'>1</div>-->
     </div>
     <div class='page page2'>
-        <div class='up'>2</div>
-        <div class='down'>2</div>
+        <!--<div class='up'>2</div>-->
+        <!--<div class='down'>2</div>-->
     </div>
     <div class='page page3'>
         <div class='up'>3</div>
@@ -100,13 +99,15 @@
         <div class='down'>4</div>
     </div>
     <div class='page page5'>
+        <!--<img src="img/background/4.png" width="100%"/>-->
+
         <div class='up'>5</div>
         <div class='down'>5</div>
     </div>
 </div>
 <div id='loading'>
     <img class='loadingLogo' src="img/logo.png"/>
-    <img class='loadingDragonfly' src="img/flydragon.png"/>
+    <img class='loadingDragonfly' src="img/flydragon/1.png"/>
 
     <div class='loadingCount'>0%</div>
 </div>
@@ -114,6 +115,7 @@
 <script src="http://apps.bdimg.com/libs/jquery/1.8.3/jquery.min.js"></script>
 <script src='js/tool/velocity.min.js'></script>
 <script src='js/tool/velocity.ui.js'></script>
+<script src='js/tool/trianglify.min.js'></script>
 <script src='js/globalManager/globalManager.js'></script>
 <script src='js/resources/resources.js'></script>
 <script src='js/page/index.js'></script>
@@ -124,12 +126,15 @@
 
 <script>
     $(function () {
+
+
         var $loading = $('#loading');
         $loading.velocity({opacity: 1}, 2000, 'ease', function () {
             afterLoading();
         });
 
 
+        //loading页淡入后开始增加渐变....................................
         function afterLoading() {
             var $loadingDragonfly = $loading.find('.loadingDragonfly');
             var $loadingCount = $loading.find('.loadingCount');
@@ -138,22 +143,25 @@
             var ease = 'easeInOutQuart';
 
 
-            //蜻蜓飞入开始加载...................
+            //蜻蜓飞入.................................................
             $loadingDragonfly
-                    .velocity({top: '0%', left: '0%'}, 0)
-                    .velocity({top: '20%', left: '30%'}, 750, ease)
+                    .velocity({top: '0%', left: '100%'}, 0)
+                    .velocity({top: '20%', left: '70%'}, 750, ease)
                     .velocity({top: '50%', left: '50%'}, 750, ease, function () {
+                        //飞入后开始加载................................
                         timer = setInterval(function () {
                             $loadingLogo.velocity({
-                                rotateZ: '-=60',
+                                rotateZ: '+=60',
                             }, {duration: 200, easing: 'linear'});
-                        }, 250)
+                        }, 400)
                         $loadingDragonfly.velocity({
                             translateX: 1.5,
-                        }, {dalay: 50, duration: 200, easing: ease, loop: true});
+                        }, {dalay: 200, duration: 200, easing: ease, loop: true});
 
 
-                        var resource = new Resources('r.json', function (alreayLoadNumber, totalNum, imgsArray) {
+                        //同时开始加载资源..............................
+                        var resource = new Resources('package.json', function (alreayLoadNumber, totalNum, imgsArray) {
+
                             if (alreayLoadNumber != totalNum) {
                                 $loadingCount.html(parseInt(alreayLoadNumber / totalNum * 100) + '%');
                             }
@@ -164,11 +172,11 @@
                                     clearInterval(timer);//logo停
                                     $loadingDragonfly.velocity('stop');
 
+                                    //停止运动 移动到第一页
                                     setTimeout(function () {
                                         $loading.delay(20).velocity({translateY: -$(window).height()}, 1000, ease);
-
                                         DoPageChange(0);
-                                    }, 2000)
+                                    }, 0)
                                 });
                             }
                         })
