@@ -4,15 +4,17 @@
     var $page = GM.$pages.eq(pageIndex);
     var winH = GM.winH;
     var winW = GM.winW;
-
+    var clickIndex = 0; //问题被点击到第几个的索引
 
     function CreateDom() {
 
         $page.append('<img src="img/bg/bgSky.png" class="bgSky" />');
         $page.append('<img src="img/bg/bgGround.png" class="bgGround" />');
 
-        $page.append('<div id="p2Title" style="font-size: 30px">你是哪种人设？</div>');
-        $page.append('<div id="p2Option" style="font-size: 30px"></div>');
+        //标题
+        $page.append('<img src="img/page2/p2s0.png" id="p2Title" width="60%"/>');
+        //选项
+        $page.append('<div id="p2Option"></div>');
 
 
         //var array = [['高富帅', '白富美'],
@@ -23,12 +25,15 @@
             ['p2s3.png', 'p2s4.png'],
             ['p2s5.png', 'p2s6.png']];
 
-        array = [['shou.png', 'shou.png'], ['shou.png', 'shou.png'], ['shou.png', 'shou.png']];
+        var dataKeyArray = ['sex',
+            'xinjiabi', 'yaozhuang'];
+        var dataValueArray = [[true, false], [true, false], [true, false]];
+
         var str = '';
         for (i = 0; i < 3; i++) {
             str += '<div class="question question' + i + '">' +
-                '<div class="option1"><img src="img/page2/' + array[i][0] + '" /></div>' +
-                '<div class="option2"><img src="img/page2/' + array[i][1] + '" /></div>' +
+                '<div class="option1" dataKey="' + dataKeyArray[i] + '" dataValue="' + dataValueArray[i][0] + '"><img src="img/page2/' + array[i][0] + '" /></div>' +
+                '<div class="option2" dataKey="' + dataKeyArray[i] + '" dataValue="' + dataValueArray[i][1] + '"><img src="img/page2/' + array[i][1] + '" /></div>' +
                 '</div>';
         }
 
@@ -41,24 +46,14 @@
     function InitCss() {
         $page.find('#p2Title').css({
             position: 'absolute',
-            top: '20%',
+            top: '15%',
             left: '50%',
             transform: 'translateX(-50%)',
-            color: '#000',
-            'text-align': 'center',
-            'font-weight': 'bold',
-            width: '100%',
         })
-
-        $page.find('.question').css({
-            opacity: 1,
-        }).velocity({
-            translateY: 0
-        }, 0)
 
         $page.find('#p2Option').css({
             position: 'absolute',
-            top: '45%',
+            top: '30%',
             left: '50%',
             color: '#000',
             'text-align': 'center',
@@ -70,28 +65,69 @@
             translateX: '-50%',
             translateY: 0
         }, 0)
+
+
+        //问题 选项容器
+        $page.find('.question').css({
+            opacity: 0,
+            width: '100%',
+            height: 180,
+        }).velocity({
+            translateY: 0
+        }, 0)
+
+        //选项
+        $page.find('.option1,.option2').css({
+            display: 'inline-block',
+            width: '50%',
+        }).find('img').css({
+            width: '100%',
+        })
+
+        resetQuestionOpacity();
+
+
     }
 
     InitCss();
 
-    var clickIndex = 0;
 
     function BindEvent() {
         $page.find('.option1,.option2').click(function () {
             var that = this;
+
+            //点击的必须是当前问题
+            var questionIndex = $(that).parent().index();
+            if (clickIndex != questionIndex) {
+                return;
+            }
             clickIndex++;
-            $(that).siblings().velocity({opacity: 0}, 500, 'ease', function () {
 
-                $(that).closest('.question').velocity({translateY: -100, opacity: 0}, 500, 'ease');
 
+            //记录接口参数....................
+            GM.form[$(that).attr('dataKey')] = $(that).attr('dataValue');
+
+            //未选中的消失
+            $(that).siblings().velocity({opacity: 0}, 200, 'slow', function () {
+                //问题div上移
+                $(that).closest('.question').velocity({translateY: -100, opacity: 0}, 'fast', 'ease');
+
+                //问题的容器上移
                 $page.find('#p2Option')
                     .velocity({translateX: '-50%'}, 0)
-                    .velocity({translateY: '-=200'}, 500, 'ease', function () {
+                    .velocity({translateY: '-=180'}, 'fast', 'ease', function () {
+
+
                         if (clickIndex == $page.find('.question').length) {
-                            DoPageChange(GM.pageIndex + 1);
+                            setTimeout(function () {
+                                DoPageChange(GM.pageIndex + 1);
+                            }, 1000);
                         }
                     });
-            })
+
+                resetQuestionOpacity();
+            });
+
 
         })
     }
@@ -100,16 +136,42 @@
 
 
     function In() {
-        clickIndex = 0;
-        InitCss();
+        //clickIndex = 0;
+        //InitCss();
         //BindEvent();
     }
 
     AnimateInArr[pageIndex] = In;
 
     function Out() {
-        InitCss();
+        //InitCss();
     }
 
     AnimateOutArr[pageIndex] = Out;
+
+
+    //ugly....................................
+    function resetQuestionOpacity() {
+
+        $page.find('.question').eq(clickIndex).velocity({
+            opacity: 1
+        }, 'slow', 'ease');
+        if (clickIndex == 0) {
+            $page.find('.question').eq(1).velocity({
+                opacity: 0.4
+            }, 'slow', 'ease');
+            $page.find('.question').eq(2).velocity({
+                opacity: 0.2
+            }, 'slow', 'ease');
+        }
+
+        else if (clickIndex == 1) {
+            $page.find('.question').eq(2).velocity({
+                opacity: 0.4
+            }, 'slow', 'ease');
+        }
+        else if (clickIndex == 2) {
+        }
+    };
+
 })()

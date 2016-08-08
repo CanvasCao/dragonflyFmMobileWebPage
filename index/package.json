@@ -17,28 +17,52 @@
       "src": "img/flydragon/4.png"
     },
     {
-      "name": "bg1",
-      "src": "img/bg/1.png"
+      "name": "p3s1",
+      "src": "img/page3/1.png"
     },
     {
-      "name": "bg2",
-      "src": "img/bg/2.png"
+      "name": "p3s2",
+      "src": "img/page3/2.png"
     },
     {
-      "name": "bg3",
-      "src": "img/bg/3.png"
+      "name": "p3s3",
+      "src": "img/page3/3.png"
     },
     {
-      "name": "bg4",
-      "src": "img/bg/4.png"
+      "name": "p3s4",
+      "src": "img/page3/4.png"
     },
     {
-      "name": "bg5",
-      "src": "img/bg/5.png"
+      "name": "p3s5",
+      "src": "img/page3/5.png"
     },
     {
-      "name": "bg6",
-      "src": "img/bg/6.png"
+      "name": "p3s6",
+      "src": "img/page3/6.png"
+    },
+    {
+      "name": "p4s1",
+      "src": "img/page4/1.png"
+    },
+    {
+      "name": "p4s2",
+      "src": "img/page4/2.png"
+    },
+    {
+      "name": "p4s3",
+      "src": "img/page4/3.png"
+    },
+    {
+      "name": "p4s4",
+      "src": "img/page4/4.png"
+    },
+    {
+      "name": "p4s5",
+      "src": "img/page4/5.png"
+    },
+    {
+      "name": "p4s6",
+      "src": "img/page4/6.png"
     },
     {
       "name": "sun",
@@ -95,10 +119,6 @@
     {
       "name": "p2s6",
       "src": "img/page2/p2s6.png"
-    },
-    {
-      "name": "pshou",
-      "src": "img/page2/shou.png"
     }
   ]
 }

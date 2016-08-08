@@ -1,4 +1,4 @@
-//$.Velocity.mock=0.2;
+//$.Velocity.mock=0.5;
 //jqObj................................
 GM.$up = $('.up');
 GM.$down = $('.down');
@@ -12,6 +12,7 @@ GM.isConVelocited = false;
 GM.winH = $(window).height();
 GM.winW = $(window).width();
 GM.RATE = GM.winH / 736;
+GM.form = {};
 
 //initDy........................................
 GM.$pages.velocity({"translateY": GM.winH}, 0, 'linear');
