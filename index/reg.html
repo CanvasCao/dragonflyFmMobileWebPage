@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+
+<script>
+    var str = '[attach]7500670[/attach]' +
+            ':dog83:有赚钱养家的爸爸，' +
+            ':cm146:      勤劳勇敢的妈妈，' +
+            ':cm108:     乖巧顽皮的宝宝----小小丁，' +
+            '[attach]7500648[/attach]' +
+            ':cm116:    听话懂事的乔巴哥哥，' +
+            ' [attach]7500650[/attach]' +
+            ' :cm103:    甜美可人的佐伊姐姐，' +
+            '  [attach]7500652[/attach]' +
+            ' :dog78:以及乔巴和佐伊调皮捣蛋的儿子summer（小小丁的大外甥:dog76:）！' +
+            '  [attach]7500654[/attach][attach]7500657[/attach]' +
+            ' :cm138:谁说孩子和狗狗不能共存？！！' +
+            ' [attach]7500665[/attach]' +
+            ' :cm120:我们会时常分享我们和它们的故事，传递爱，传递正能量~' +
+            '   [attach]7500666[/attach]';
+
+
+    var reg = /\[attach\](\d+)\[\/attach\]/ig;
+    var arr = [];
+    for (i = 0; i < 999999; i++) {
+        var b = reg.test(str);
+        if (!b) {
+            break;
+        }
+        arr.push(RegExp.$1);
+        console.log(b);
+        console.log(RegExp.$1);
+        if (!b) {
+            break;
+        }
+    }
+    console.log(arr);
+
+</script>
+</body>
+</html>

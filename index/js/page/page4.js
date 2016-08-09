@@ -309,7 +309,8 @@
             $page.append('<img class="des" src="img/page4/txt5.png"  width="50%"/>');
 
             $page.append('<img class="house" src="img/icon/5/house.png"  width="55%"/>');
-            $page.append('<img class="water" src="img/icon/5/water.png"  width="75%"/>');
+            $page.append('<img class="water1" src="img/icon/5/water.png"  width="75%"/>');
+            $page.append('<img class="water2" src="img/icon/5/water.png"  width="75%"/>');
 
 
             $page.find(".house")
@@ -319,9 +320,16 @@
                 })
                 .velocity('transition.bounceDownIn', 1000, ease)
 
-            $page.find(".water").delay(delay += 50)
+            $page.find(".water1").delay(delay += 50)
                 .css({
                     top: '73%',
+                    left: '13%',
+                })
+                .velocity('transition.bounceDownIn', 1000, ease)
+
+            $page.find(".water2").delay(delay += 50)
+                .css({
+                    top: '83%',
                     left: '13%',
                 })
                 .velocity('transition.bounceDownIn', 1000, ease)
@@ -349,12 +357,62 @@
 
 
         }
+        else if (num == 6) {
+            $page.append('<img class="countryside" src="img/icon/6/countryside.png" width="80%">');
+            $page.append('<img class="des" src="img/page4/txt6.png"  width="50%"/>');
+            $page.append('<img class="nature1" src="img/icon/6/nature1.png"  width="70%"/>');
+            $page.append('<img class="nature2" src="img/icon/6/nature1.png"  width="70%"/>');
+
+
+            $page.find(".countryside")
+                .css({
+                    top: '45%',
+                    left: '10%',
+                })
+                .velocity('transition.bounceDownIn', 1000, ease)
+
+            $page.find(".des").delay(delay += 50)
+                .css({
+                    top: '12%',
+                    left: '25%',
+                })
+                .velocity('transition.bounceDownIn', 1000, ease)
+                .velocity('callout.swing', 1000, ease)
+
+            $page.find(".nature1").delay(delay += 50)
+                .css({
+                    top: '70%',
+                    left: '0%',
+                })
+                .velocity('transition.bounceDownIn', 1000, ease)
+
+            $page.find(".nature2").delay(delay += 50)
+                .css({
+                    top: '70%',
+                    left: '30%',
+                })
+                .velocity('transition.bounceDownIn', 1000, ease, function () {
+
+
+                    $page.find(".nature1").velocity({left: '-=3%'}, {loop: true, ease: ease, duration: 2000});
+                    $page.find(".nature2").delay(400).velocity({left: '+=3%'}, {loop: true, ease: ease, duration: 2000})
+                })
+
+        }
+
 
     }
 
 
     function In(num) {
-        picNum = num || 5;
+        var audioLengthArray = [null,4, 6, 4, 4, 3, 3];
+
+        picNum = num || 1;
+
+        GM.form.envment = picNum;
+        controller.getProducts()
+
+
         //动态设置图片...............
         $page.find('.secImg').attr('src', 'img/page4/' + picNum + '.png');
 
@@ -366,10 +424,19 @@
             //加载动态图
             appendIcon(picNum);
 
+            //读字
+            setTimeout(function () {
+                var audio = $('audio')[0];
+                audio.src = 'audio/' + picNum + '.mp3';
+                audio.play();
+            },1000);
+
+
             //第三页换第四页............
             setTimeout(function () {
-                //DoPageChange(GM.pageIndex + 1);
-            }, 5000)
+                console.log(GM.form);
+                DoPageChange(GM.pageIndex + 1);
+            },  (audioLengthArray[picNum] + 2) * 1000)
         });
     }
 

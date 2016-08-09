@@ -79,7 +79,7 @@
             opacity: 1,
         }, 1500, ease, function () {
             $page.find('#suitcase')
-                .velocity({opacity: 0.2}, {duration:1000,loop: true});
+                .velocity({opacity: 0.2}, {duration: 1000, loop: true});
         });
     }
 

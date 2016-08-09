@@ -3,6 +3,7 @@
  */
 function Resources(resourceJson, callback) {
     this.imgs = [];
+    this.audios = [];
     this.resourceJson = resourceJson;
     this.callback = callback;
 
@@ -21,8 +22,10 @@ Resources.prototype = {
                 //data直接是对象 不需要json.parse
                 console.log(JSON.stringify(data));
 
+                var totalLength = data.images.length + data.audios.length;
                 var alreayLoadNumber = 0;
                 [].forEach.call(data.images, function (e, i, array) {
+
                     var imgObj = e;
                     var image = new Image();
                     image.src = imgObj.src;
@@ -33,14 +36,31 @@ Resources.prototype = {
                         that.imgs[imgObj.name] = this;//this指image对象
 
                         //回调逻辑在外部 内部不做判断.....
-                        console.log(alreayLoadNumber);
-                        that.callback(alreayLoadNumber, array.length, that.imgs);
+                        //console.log(alreayLoadNumber);
+                        that.callback(alreayLoadNumber, totalLength, that.imgs);
 
                     }
-                })
+                });
+
+                [].forEach.call(data.audios, function (e, i, array) {
+
+                    var audioObj = e;
+                    var audio = new Audio(e.src);
+                    audio.index = i;
+
+                    audio.addEventListener("canplaythrough", function (event) {
+                        alreayLoadNumber++;
+                        that.imgs[audioObj.name] = this;//this指image对象
+
+                        //console.log(alreayLoadNumber);
+                        that.callback(alreayLoadNumber, totalLength, that.audios);
+                    }, false);
+
+                });
+
 
             },
-            error:function(){
+            error: function () {
                 console.log('ERROR');
 
             }

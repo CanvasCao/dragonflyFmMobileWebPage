@@ -22,6 +22,8 @@
         }
         $page.append(str);
 
+
+        $page.append('<img src="img/page3/maskTxt.png" class="maskTxt" width=70%/>');
     }
 
     CreateDom();
@@ -53,6 +55,17 @@
         }).find('img').css({
             width: '100%',
         })
+
+
+        $page.find('.maskTxt').css({
+            position: 'absolute',
+            color: 'white',
+            top: "45%",
+            left: "50%",
+            opacity: 0,
+        })
+
+
     }
 
     initCss();
@@ -76,22 +89,34 @@
     var ifClicked = false;
 
     function initPos() {
-        sections.each(function (i, e) {
-            //六张图移动到中心位置.....................
-            $(e).velocity({
-                top: '50%',
-                left: '50%',
-                'translateX': -secW / 2,
-                'translateY': -secH / 2,
-                'opacity': 0
-            }, 0, ease)
-                //六张图分散移动.....................
-                .delay(i * 100).velocity({
-                    'translateX': -secW / 2 + secPosArr[i][0] + 'px',
-                    'translateY': -secH / 2 + secPosArr[i][1] + 'px',
-                    'opacity': 1
-                }, 'slow', ease);
-        });
+
+        $page.find('.maskTxt')
+            .velocity({'translateX': '-50%'}, 0)
+            .velocity('transition.bounceDownIn', 1000, ease)
+            .delay(1500).velocity('fadeOut', 'fast', ease, function () {
+
+                splitOut();
+            })
+
+        function splitOut() {
+            sections.each(function (i, e) {
+                //六张图移动到中心位置.....................
+                $(e).velocity({
+                    top: '50%',
+                    left: '50%',
+                    'translateX': -secW / 2,
+                    'translateY': -secH / 2,
+                    'opacity': 0
+                }, 0, ease)
+                    //六张图分散移动.....................
+                    .delay(i * 100).velocity({
+                        'translateX': -secW / 2 + secPosArr[i][0] + 'px',
+                        'translateY': -secH / 2 + secPosArr[i][1] + 'px',
+                        'opacity': 1
+                    }, 'slow', ease);
+            });
+        }
+
     }
 
     //initPos();
@@ -101,11 +126,12 @@
     function bindEvent() {
         ifClicked = false;
         sections.find('.secCir').click(function () {
+            var that = this;
+
             if (ifClicked) {
                 return;
             }
 
-            var that = this;
             var $parent = $(this).parent();
             ifClicked = true;
 
@@ -149,7 +175,7 @@
         })
     }
 
-    bindEvent();
+    //bindEvent();
 
 
     function In() {

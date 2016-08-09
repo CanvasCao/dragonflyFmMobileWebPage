@@ -25,9 +25,8 @@
             ['p2s3.png', 'p2s4.png'],
             ['p2s5.png', 'p2s6.png']];
 
-        var dataKeyArray = ['sex',
-            'xinjiabi', 'yaozhuang'];
-        var dataValueArray = [[true, false], [true, false], [true, false]];
+        var dataKeyArray = ['sex', 'is_sexprice', 'is_buy_series'];
+        var dataValueArray = [[1, 0], [1, 0], [1, 0]];
 
         var str = '';
         for (i = 0; i < 3; i++) {
