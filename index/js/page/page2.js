@@ -157,16 +157,16 @@
         }, 'slow', 'ease');
         if (clickIndex == 0) {
             $page.find('.question').eq(1).velocity({
-                opacity: 0.4
+                opacity: 0.2
             }, 'slow', 'ease');
             $page.find('.question').eq(2).velocity({
-                opacity: 0.2
+                opacity: 0.1
             }, 'slow', 'ease');
         }
 
         else if (clickIndex == 1) {
             $page.find('.question').eq(2).velocity({
-                opacity: 0.4
+                opacity: 0.2
             }, 'slow', 'ease');
         }
         else if (clickIndex == 2) {

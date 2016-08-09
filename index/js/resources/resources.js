@@ -19,7 +19,7 @@ Resources.prototype = {
             type: "get",
             url: that.resourceJson,
             success: function (data) {
-                //dataÖ±½ÓÊÇ¶ÔÏó ²»ĞèÒªjson.parse
+                //dataç›´æ¥æ˜¯å¯¹è±¡ ä¸éœ€è¦json.parse
                 console.log(JSON.stringify(data));
 
                 var totalLength = data.images.length + data.audios.length;
@@ -33,9 +33,9 @@ Resources.prototype = {
 
                     image.onload = function () {
                         alreayLoadNumber++;
-                        that.imgs[imgObj.name] = this;//thisÖ¸image¶ÔÏó
+                        that.imgs[imgObj.name] = this;//thisæŒ‡imageå¯¹è±¡
 
-                        //»Øµ÷Âß¼­ÔÚÍâ²¿ ÄÚ²¿²»×öÅĞ¶Ï.....
+                        //å›è°ƒé€»è¾‘åœ¨å¤–éƒ¨ å†…éƒ¨ä¸åšåˆ¤æ–­.....
                         //console.log(alreayLoadNumber);
                         that.callback(alreayLoadNumber, totalLength, that.imgs);
 
@@ -45,17 +45,24 @@ Resources.prototype = {
                 [].forEach.call(data.audios, function (e, i, array) {
 
                     var audioObj = e;
-                    var audio = new Audio(e.src);
-                    audio.index = i;
+                    $('body').append('<audio preload="auto" id="audio' + i + '"></audio>');
 
-                    audio.addEventListener("canplaythrough", function (event) {
+                    $('body').find('#audio' + i).attr('src', e.src);
+
+                    $('body').find('#audio' + i).bind("canplaythrough suspend", function (event) {
+
                         alreayLoadNumber++;
-                        that.imgs[audioObj.name] = this;//thisÖ¸image¶ÔÏó
+                        that.imgs[e.name] = this;//thisæŒ‡imageå¯¹è±¡
+
+                        //$('body').find('#audio' + i)[0].load();
 
                         //console.log(alreayLoadNumber);
                         that.callback(alreayLoadNumber, totalLength, that.audios);
-                    }, false);
-
+                    });
+                    $('body').find('#audio' + i).bind("error", function (event) {
+                        alreayLoadNumber++;
+                        that.callback(alreayLoadNumber, totalLength, that.audios);
+                    });
                 });
 
 

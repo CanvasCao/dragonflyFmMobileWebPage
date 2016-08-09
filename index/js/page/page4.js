@@ -405,7 +405,7 @@
 
 
     function In(num) {
-        var audioLengthArray = [null,4, 6, 4, 4, 3, 3];
+        var audioLengthArray = [null, 4, 6, 4, 4, 3, 3];
 
         picNum = num || 1;
 
@@ -424,19 +424,19 @@
             //加载动态图
             appendIcon(picNum);
 
+
+            //$('audio').eq(picNum - 1)[0].load();
             //读字
             setTimeout(function () {
-                var audio = $('audio')[0];
-                audio.src = 'audio/' + picNum + '.mp3';
-                audio.play();
-            },1000);
+                $('audio').eq(picNum - 1)[0].play();
+            }, 1000);
 
 
             //第三页换第四页............
             setTimeout(function () {
                 console.log(GM.form);
                 DoPageChange(GM.pageIndex + 1);
-            },  (audioLengthArray[picNum] + 2) * 1000)
+            }, (audioLengthArray[picNum] + 2) * 1000)
         });
     }
 

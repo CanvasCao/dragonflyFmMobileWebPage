@@ -46,41 +46,44 @@
 
 
     function In() {
-        $page.find('#p1s1').velocity({
-            top: '5%',
-            opacity: 0,
-            'translateX': '-50%',
-        }, 0).velocity({top: '25%', opacity: 1}, 1500, ease);
+        var delay = 0;
 
-        $page.find('#p1s2').delay(200).velocity({
-            top: '15%',
-            opacity: 0,
-            'translateX': '-50%',
-        }, 0).velocity({
-            top: '35%',
-            opacity: 1
-        }, 1500, ease);
 
-        $page.find('#p1s3').delay(400).velocity({
-            top: '45%',
-            opacity: 0,
-            'translateX': '-50%',
-        }, 0).velocity({
-            top: '65%',
-            opacity: 1,
-        }, 1500, ease);
+        $page.find('#p1s1').delay(0)
+            .velocity({
+                'translateX': '-50%',
+                left: '50%',
+                top: '25%'
+            }, 0)
+            .velocity('transition.bounceDownIn', 1500, ease)
 
-        $page.find('#suitcase').delay(400).velocity({
-            top: '50%',
-            opacity: 0,
-            'translateX': '-50%',
-        }, 0).velocity({
-            top: '70%',
-            opacity: 1,
-        }, 1500, ease, function () {
-            $page.find('#suitcase')
-                .velocity({opacity: 0.2}, {duration: 1000, loop: true});
-        });
+
+        $page.find('#p1s2').delay(delay += 200)
+            .velocity({
+                'translateX': '-50%',
+                left: '50%',
+                top: '35%'
+            }, 0)
+            .velocity('transition.bounceDownIn', 1500, ease)
+
+
+        $page.find('#p1s3').delay(delay += 200)
+            .velocity({
+                'translateX': '-50%',
+                left: '50%',
+                top: '65%'
+            }, 0)
+            .velocity('transition.bounceDownIn', 1500, ease)
+
+        $page.find('#suitcase').delay(delay += 200)
+            .velocity({
+                'translateX': '-50%',
+                left: '50%',
+                top: '70%'
+            }, 0).velocity('transition.bounceDownIn', 1500, ease, function () {
+                $page.find('#suitcase')
+                    .velocity({opacity: 0.2}, {duration: 1000, loop: true});
+            })
     }
 
 

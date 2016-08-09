@@ -94,7 +94,6 @@
             .velocity({'translateX': '-50%'}, 0)
             .velocity('transition.bounceDownIn', 1000, ease)
             .delay(1500).velocity('fadeOut', 'fast', ease, function () {
-
                 splitOut();
             })
 

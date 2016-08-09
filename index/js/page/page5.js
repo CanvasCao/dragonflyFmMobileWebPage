@@ -13,10 +13,10 @@
         $page.append('<img src="img/bg/bgSky.png" class="bgSky" />');
         $page.append('<img src="img/bg/bgGround.png" class="bgGround" />');
 
-        $page.append('<img id="p5s1" src="img/page5/1.png" width="40%"/>');
-        $page.append('<img id="p5s2" src="img/page5/2.png" width="40%"/>');
-        $page.append('<img id="p5s3" src="img/page5/3.png" width="20%"/>');
-        $page.append('<img id="p5s4" src="img/page5/4.png" width="20%"/>');
+        $page.append('<img id="p5s1" src="img/page5/1.png" width="60%"/>');
+        $page.append('<img id="p5s2" src="img/page5/2.png" width="60%"/>');
+        $page.append('<img id="p5s3" src="img/page5/3.png" width="66%"/>');
+        $page.append('<img id="p5s4" src="img/page5/4.png" width="30%"/>');
 
     }
 
@@ -33,14 +33,58 @@
             //transform: 'translateX(-50%) translateY(-50%)',
             opacity: 0,
         })
-
-
     }
 
     InitCss();
 
+    function BindEvent() {
+        $page.find('#p5s4').click(function () {
+            DoPageChange(GM.pageIndex + 1);
+        })
+    }
+
+    BindEvent();
+
 
     function In() {
+        var delay = 0;
+
+        $page.find('#p5s1').delay(0)
+            .velocity({
+                'translateX': '-50%',
+                left: '50%',
+                top: '20%'
+            }, 0)
+            .velocity('transition.slideDownIn', 1500, ease)
+
+        $page.find('#p5s2').delay(delay += 600)
+            .velocity({
+                'translateX': '-50%',
+                left: '50%',
+                top: '30%'
+            }, 0)
+            .velocity('transition.slideDownIn', 1500, ease)
+
+        $page.find('#p5s3').delay(delay += 600)
+            .velocity({
+                'translateX': '-50%',
+                left: '50%',
+                top: '45%'
+            }, 0)
+            .velocity('transition.slideDownIn', 1500, ease)
+
+        $page.find('#p5s4').delay(delay += 600)
+            .velocity({
+                'translateX': '-50%',
+                left: '50%',
+                top: '84%'
+            }, 0)
+            .velocity('transition.slideDownIn', 1500, ease, function () {
+                $page.find('#p5s4')
+                    .velocity({opacity: 0.2}, {duration: 1000, loop: true});
+            });
+
+
     }
 
     AnimateInArr[pageIndex] = In;

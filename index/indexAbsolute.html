@@ -7,7 +7,6 @@
 
     <link rel="stylesheet" href="css/main.css"/>
     <link rel="stylesheet" href="css/loading.css"/>
-    <link rel="stylesheet" href="css/page2.css"/>
     <style type="text/css">
 
         #container {
@@ -54,13 +53,6 @@
             opacity: 0;
         }
 
-        .page4 .des {
-            font-size: 18px;
-            color: #fff;
-            opacity: 0;
-            position: absolute;
-        }
-
 
     </style>
 
@@ -74,53 +66,41 @@
         <!--<div class='up'>1</div>-->
         <!--<div class='down'>1</div>-->
     </div>
-    <div class='page page2'>
-        <!--<div class='up'>2</div>-->
-        <!--<div class='down'>2</div>-->
-    </div>
-    <div class='page page3'>
-        <!--<div class='up'>3</div>-->
-        <!--<div class='down'>3</div>-->
-    </div>
-    <div class='page page4'>
-        <!--<div class='up'>4</div>-->
-        <!--<div class='down'>4</div>-->
-    </div>
-    <div class='page page5'>
-        <!--<img src="img/background/4.png" width="100%"/>-->
-        <!--<div class='up'>5</div>-->
-        <!--<div class='down'>5</div>-->
-    </div>
-    <div class='page page6'>
-        <!--<img src="img/background/4.png" width="100%"/>-->
-
-        <div class='up'>6</div>
-        <div class='down'>6</div>
-    </div>
+    <div class='page page2'></div>
+    <div class='page page3'></div>
+    <div class='page page4'></div>
+    <div class='page page5'></div>
+    <div class='page page6'></div>
 </div>
 <div id='loading'>
     <img class='loadingLogo' src="img/logo.png"/>
     <img class='loadingDragonfly' src="img/flydragon/1.png"/>
-
-    <div class='loadingCount'>0%</div>
+    <div class='loadingCount'></div>
 </div>
-<audio src=""></audio>
+
 
 <script src="http://apps.bdimg.com/libs/jquery/1.8.3/jquery.min.js"></script>
 <script src='js/tool/velocity.min.js'></script>
 <script src='js/tool/velocity.ui.js'></script>
-<script src='js/tool/trianglify.min.js'></script>
 <script src='js/globalManager/globalManager.js'></script>
 <script src='js/controller/controller.js'></script>
 <script src='js/resources/resources.js'></script>
+<script src='js/tool/fastclick.js'></script>
 <script src='js/page/index.js'></script>
 <script src='js/page/page1.js'></script>
 <script src='js/page/page2.js'></script>
 <script src='js/page/page3.js'></script>
 <script src='js/page/page4.js'></script>
+<script src='js/page/page5.js'></script>
+<script src='js/page/page6.js'></script>
+
 
 <script>
     $(function () {
+        //FastClick.....................................................
+        FastClick.attach(document.body);
+
+
         var $loading = $('#loading');
         $loading.velocity({opacity: 1}, 1500, 'ease', function () {
             afterLoading();
@@ -156,7 +136,8 @@
                         var resource = new Resources('package.json', function (alreayLoadNumber, totalNum, imgsArray) {
 
                             if (alreayLoadNumber != totalNum) {
-                                $loadingCount.html(parseInt(alreayLoadNumber / totalNum * 100) + '%');
+                                var num = (alreayLoadNumber / totalNum) > 1 ? 1 : (alreayLoadNumber / totalNum);
+                                $loadingCount.html(parseInt(num * 100) + '%');
                             }
                             else if (alreayLoadNumber == totalNum) {
 
@@ -169,7 +150,7 @@
                                     setTimeout(function () {
                                         $loading.delay(0).velocity({translateY: -$(window).height()}, 1000, ease);
                                         DoPageChange(0);
-                                    }, 2000)
+                                    }, 0)
                                 });
                             }
                         })

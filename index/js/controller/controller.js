@@ -11,7 +11,7 @@
 //                url: 'package.json',
             data: GM.form,
             dataType: "jsonp",
-            jsonp: "callback",//´«µİ¸øÇëÇó´¦Àí³ÌĞò»òÒ³ÃæµÄ£¬ÓÃÒÔ»ñµÃjsonp»Øµ÷º¯ÊıÃûµÄ²ÎÊıÃû(Ò»°ãÄ¬ÈÏÎª:callback)
+            jsonp: "callback",//ä¼ é€’ç»™è¯·æ±‚å¤„ç†ç¨‹åºæˆ–é¡µé¢çš„ï¼Œç”¨ä»¥è·å¾—jsonpå›è°ƒå‡½æ•°åçš„å‚æ•°å(ä¸€èˆ¬é»˜è®¤ä¸º:callback)
             jsonpCallback: "jsonpcallback",
             success: function (data) {
                 console.log(JSON.stringify(data));
@@ -23,6 +23,5 @@
             }
         });
     }
-
     w.controller = controller;
 })(window, document, $);
