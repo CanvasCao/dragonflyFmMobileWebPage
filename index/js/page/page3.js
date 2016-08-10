@@ -60,7 +60,7 @@
         $page.find('.maskTxt').css({
             position: 'absolute',
             color: 'white',
-            top: "45%",
+            top: "42%",
             left: "50%",
             opacity: 0,
         })

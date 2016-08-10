@@ -12,7 +12,7 @@ GM.isConVelocited = false;
 GM.winH = $(window).height();
 GM.winW = $(window).width();
 GM.RATE = GM.winH / 736;
-GM.form = {};
+GM.form = {};//form是提交给服务器的表单数据
 
 //initDy........................................
 GM.$pages.velocity({"translateY": GM.winH}, 0, 'linear');
@@ -42,7 +42,7 @@ function DoPageChange(newIndex, duration) {
 
     GM.pageIndex = newIndex;
     GM.isConVelocited = true;
-    var duration = duration || 800;
+    var duration = duration || 600;
     var ease = 'easeInOutQuart';
 
     //判断当前的page是上移还是下移
@@ -73,36 +73,12 @@ function DoPageChange(newIndex, duration) {
             AnimateOutArr[oldIndex]();
         }
         AnimateInArr[GM.pageIndex]();
-    }, 800)
+    }, duration)
 
 
 }
 window.DoPageChange = DoPageChange;
 
 
-window.AnimateInArr =
-    [
-        function () {
-        },
-        function () {
-        },
-        function () {
-        },
-        function () {
-        },
-        function () {
-        },
-    ];
-window.AnimateOutArr =
-    [
-        function () {
-        },
-        function () {
-        },
-        function () {
-        },
-        function () {
-        },
-        function () {
-        },
-    ];
+window.AnimateInArr = [];
+window.AnimateOutArr = [];

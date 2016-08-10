@@ -4,6 +4,7 @@
     var $page = GM.$pages.eq(pageIndex);
     var winH = GM.winH;
     var winW = GM.winW;
+    var ease = 'ease';
     var clickIndex = 0; //问题被点击到第几个的索引
 
     function CreateDom() {
@@ -48,6 +49,7 @@
             top: '15%',
             left: '50%',
             transform: 'translateX(-50%)',
+            opacity:0,
         })
 
         $page.find('#p2Option').css({
@@ -83,7 +85,6 @@
             width: '100%',
         })
 
-        resetQuestionOpacity();
 
 
     }
@@ -103,7 +104,7 @@
             clickIndex++;
 
 
-            //记录接口参数....................
+            //记录接口参数.....................................
             GM.form[$(that).attr('dataKey')] = $(that).attr('dataValue');
 
             //未选中的消失
@@ -120,7 +121,7 @@
                         if (clickIndex == $page.find('.question').length) {
                             setTimeout(function () {
                                 DoPageChange(GM.pageIndex + 1);
-                            }, 1000);
+                            }, 200);
                         }
                     });
 
@@ -135,15 +136,31 @@
 
 
     function In() {
-        //clickIndex = 0;
-        //InitCss();
-        //BindEvent();
+        var delay = 0;
+
+        $page.find('#p2Title').eq(0).delay(0)
+            .velocity({translateX:'-50%'},0)
+            .velocity('transition.slideDownIn', 1500, ease)
+
+
+        $page.find('.question').eq(0).delay(delay += 200)
+            .velocity({opacity:0,translateY:-100},0)
+            .velocity({opacity:1,translateY:0}, 1500, ease)
+
+        $page.find('.question').eq(1).delay(delay += 200)
+            .velocity({opacity:0,translateY:-100},0)
+            .velocity({opacity:0.2,translateY:0}, 1500, ease)
+
+        $page.find('.question').eq(2).delay(delay += 200)
+            .velocity({opacity:0,translateY:-100},0)
+            .velocity({opacity:0.1,translateY:0}, 1500, ease)
+
     }
 
     AnimateInArr[pageIndex] = In;
 
+
     function Out() {
-        //InitCss();
     }
 
     AnimateOutArr[pageIndex] = Out;

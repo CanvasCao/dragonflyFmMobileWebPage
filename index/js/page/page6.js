@@ -16,9 +16,9 @@
         $page.append('<img src="img/bg/bgGround.png" class="bgGround" style="opacity: 0.3"/>');
 
 
-        $page.append('<img src="img/page6/btn.png" class="btn btn1" width="25%"/>');
-        $page.append('<img src="img/page6/btn.png" class="btn btn2" width="25%"/>');
-        $page.append('<img src="img/page6/btn.png" class="btn btn3" width="25%"/>');
+        $page.append('<img src="img/page6/btn1.png" class="btn btn1" width="25%"/>');
+        $page.append('<img src="img/page6/btn2.png" class="btn btn2" width="25%"/>');
+        $page.append('<img src="img/page6/btn3.png" class="btn btn3" width="25%"/>');
 
         $page.append('<img src="img/page6/jimi.png" class="jimi" width="10%"/>');
         $page.append('<img src="img/page6/logo.png" class="logo" width="18%"/>');
@@ -28,7 +28,7 @@
 
 
         for (i = 0; i < 6; i++) {
-            $page.append('<div class="stage stage' + i + '"><div class="sec"><img /></div></div>');
+            $page.append('<div class="stage stage' + i + '"><div class="sec"><div class="text"></div><img /></div></div>');
         }
     }
 
@@ -50,7 +50,7 @@
 
         $page.find('.btn').css({
             position: 'absolute',
-            top: '78%',
+            top: '83%',
             left: '50%',
             transform: 'translateX(-50%) translateY(-50%)',
         })
@@ -70,45 +70,58 @@
 
         $page.find('.jimi').css({
             position: 'absolute',
-            top: '88%',
-            left: '56%',
+            top: '92%',
+            left: '59%',
         })
         $page.find('.logo').css({
             position: 'absolute',
-            top: '88%',
+            top: '93%',
             left: '26%',
         })
         $page.find('.shugang').css({
             position: 'absolute',
-            top: '89%',
-            left: '50%',
-            color:"#ccc",
+            top: '94%',
+            left: '51%',
+            color: "#ccc",
         })
 
         //舞台定位
 
-        var posArr=[[20,30],[20,70],[40,30],[40,70],[60,30],[60,70],]
-        $page.find('.stage').each(function(i,e){
+        var posArr = [[15, 30], [15, 70], [40, 30], [40, 70], [65, 30], [65, 70],];
+        $page.find('.stage').each(function (i, e) {
             $(e).css({
                 position: 'absolute',
-                top: posArr[i][0]+'%',
-                left: posArr[i][1]+'%',
-                width: winW / 4,
-                height: winW / 4,
-                border: '10px solid #eee',
+                top: posArr[i][0] + '%',
+                left: posArr[i][1] + '%',
+                width: winW * 0.27,
+                height: winW * 0.27,
+                border: '5px solid #eee',
                 perspective: '200px',
-                'box-shadow':'3px 3px 3px rgba(0,0,0,0.2)'
+                'box-shadow': '3px 3px 3px rgba(0,0,0,0.2)',
+                'overflow': 'hidden',
+
             }).velocity({
                 'translateX': '-50%',
                 'translateY': '-50%',
             })
 
             $(e).find('.sec').css({
-                width: winW / 4,
-                height: winW / 4,
+                width: winW * 0.27,
+                height: winW * 0.27,
+                background: 'white',
                 'backface-visibility': 'hidden',
+                'text-align': 'center',
+                opacity: 0,
+                'box-sizing': 'border-box',
+                'padding': '2px 2px 3px',
             }).find('img').css({
-                width: '100%',
+                height: '50%',
+            })
+
+            $(e).find('.text').css({
+                'font-size': '12px',
+                height: '50%',
+                color: '#ccc',
             })
         })
 
@@ -118,7 +131,9 @@
 
     function BindEvent() {
         $page.find('.mask').click(function () {
-            $page.find('.mask,.share').velocity('fadeOut', 'slow', ease);
+            $page.find('.mask,.share').velocity({opacity: 0}, 'slow', ease, function () {
+                $page.find('.mask,.share').css('display', 'none');
+            });
         })
 
         $page.find('.btn1').click(function () {
@@ -136,18 +151,18 @@
         })
 
         $page.find('.btn3').click(function () {
-            $page.find('.mask').velocity('fadeIn', 'slow', ease, function () {
-                $page.find('.share')
-                    .css({display: 'block'})
-                    .velocity({
-                        top: '26%',
-                        left: '36%',
-                    }, 0).velocity({
-                        top: '6%',
-                        left: '56%',
-                        opacity: 1,
-                    }, 1000, ease)
-            })
+            $page.find('.mask,.share').css({'display': 'block', opacity: 0});
+
+            $page.find('.mask').velocity({opacity: 0.7}, 'slow', ease);
+            $page.find('.share')
+                .velocity({
+                    top: '36%',
+                    left: '36%',
+                }, 0).velocity({
+                    top: '6%',
+                    left: '56%',
+                    opacity: 1,
+                }, 1000, ease);
         })
     }
 
@@ -190,16 +205,16 @@
         var products = GM.products || defaultArr;
 
 
-        //六个图定位
-
-        $page.find('.stage').each(function(i,e){
-            $(e).find('.sec img').attr({src: products[i].imgUrl})
+        //六个图定位..............................................
+        //图片在controller已经加载了
+        $page.find('.stage').each(function (i, e) {
             $(e).find('.sec').velocity({
-                rotateY: 180,
+                rotateY: 540,
+                opacity: 1
             }, 0)
-                .delay(1000+i*100).velocity({
+                .delay(500 + i * 100).velocity({
                     rotateY: 0,
-                }, 2000, 'swing');
+                }, 1600, ease);
 
         });
 

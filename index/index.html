@@ -75,6 +75,10 @@
 <div id='loading'>
     <img class='loadingLogo' src="img/logo.png"/>
     <img class='loadingDragonfly' src="img/flydragon/1.png"/>
+    <img style="display: none" src="img/flydragon/2.png"/>
+    <img style="display: none" src="img/flydragon/3.png"/>
+    <img style="display: none" src="img/flydragon/4.png"/>
+
     <div class='loadingCount'></div>
 </div>
 
@@ -113,25 +117,30 @@
             var $loadingCount = $loading.find('.loadingCount');
             var $loadingLogo = $loading.find('.loadingLogo');
             var timer = null;
+            var timer2 = null;
+            var timer2Index = 1;
             var ease = 'easeInOutQuart';
 
 
             //蜻蜓飞入.................................................
             $loadingDragonfly
                     .velocity({top: '0%', left: '100%'}, 0)
-                    .velocity({top: '20%', left: '70%'}, 750, ease)
-                    .velocity({top: '50%', left: '50%'}, 750, ease, function () {
-                        //飞入后开始加载................................
+                    .velocity({top: '20%', left: '70%'}, 600, ease)
+                    .velocity({top: '50%', left: '50%'}, 600, ease, function () {
+                        //飞入后开始加载..................................
                         timer = setInterval(function () {
                             $loadingLogo.velocity({
-                                rotateZ: '+=60',
+                                rotateZ: '+=120',
                             }, {duration: 200, easing: 'linear'});
-                        }, 400)
-                        $loadingDragonfly.velocity({
-                            translateX: 1.5,
-                        }, {dalay: 200, duration: 200, easing: ease, loop: true});
+                        }, 201)
+                        timer2 = setInterval(function () {
+                            $loadingDragonfly.attr({src: 'img/flydragon/' + timer2Index + '.png'});
+                            timer2Index++;
+                            timer2Index = (timer2Index >= 4) ? 1 : timer2Index;
+                        }, 40)
 
 
+                        $loadingCount.html('0%');
                         //同时开始加载资源..............................
                         var resource = new Resources('package.json', function (alreayLoadNumber, totalNum, imgsArray) {
 
@@ -144,13 +153,14 @@
                                 $('#container').velocity({opacity: 1}, 1000, ease, function () {
                                     $loadingCount.html('100%');
                                     clearInterval(timer);//logo停
-                                    $loadingDragonfly.velocity('stop');
+                                    clearInterval(timer2);//蜻蜓停
+
 
                                     //停止运动 移动到第一页
                                     setTimeout(function () {
-                                        $loading.delay(0).velocity({translateY: -$(window).height()}, 1000, ease);
+                                        $loading.delay(0).velocity({translateY: -$(window).height()}, 'normal', ease);
                                         DoPageChange(0);
-                                    }, 0)
+                                    }, 0);
                                 });
                             }
                         })

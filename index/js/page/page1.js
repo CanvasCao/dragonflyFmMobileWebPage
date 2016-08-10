@@ -5,7 +5,6 @@
     var winH = GM.winH;
     var winW = GM.winW;
     var ease = 'ease';
-    var tadaTimer = null;
 
 
     function CreateDom() {
@@ -26,7 +25,6 @@
             display: 'block',
             top: '50%',
             left: '50%',
-            //transform: 'translateX(-50%) translateY(-50%)',
             opacity: 0,
         })
 
@@ -90,8 +88,6 @@
     AnimateInArr[pageIndex] = In;
 
     function Out() {
-        //clearInterval(tadaTimer);
-        //delete(tadaTimer);
         $page.find('#suitcase').velocity('stop').velocity({opacity: 0});
     }
 

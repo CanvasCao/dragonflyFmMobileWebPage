@@ -61,7 +61,7 @@
             .velocity({
                 'translateX': '-50%',
                 left: '50%',
-                top: '30%'
+                top: '35%'
             }, 0)
             .velocity('transition.slideDownIn', 1500, ease)
 

@@ -1,5 +1,5 @@
 {
-  "audios":[
+  "audios": [
     {
       "name": "audio1",
       "src": "audio/1.mp3"
@@ -19,10 +19,12 @@
     {
       "name": "audio5",
       "src": "audio/5.mp3"
+    },
+    {
+      "name": "audio6",
+      "src": "audio/6.mp3"
     }
   ],
-
-
   "images": [
     {
       "name": "fd1",
