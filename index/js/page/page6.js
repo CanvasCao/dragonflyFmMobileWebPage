@@ -20,15 +20,15 @@
         $page.append('<img src="img/page6/btn2.png" class="btn btn2" width="25%"/>');
         $page.append('<img src="img/page6/btn3.png" class="btn btn3" width="25%"/>');
 
-        $page.append('<img src="img/page6/jimi.png" class="jimi" width="10%"/>');
-        $page.append('<img src="img/page6/logo.png" class="logo" width="18%"/>');
+        $page.append('<img src="img/page6/jimi.png" class="jimi" width="20%"/>');
+        $page.append('<img src="img/page6/logo.png" class="logo" width="19%"/>');
         $page.append('<div class="shugang">|</div>');
 
         $page.append('<div class="mask" style="z-index: 2"><img src="img/page6/share.png" class="share" width="35%"/></div>');
 
 
         for (i = 0; i < 6; i++) {
-            $page.append('<div class="stage stage' + i + '"><div class="sec"><div class="text"></div><img /></div></div>');
+            $page.append('<div class="stage stage' + i + '"><div class="sec"><img /><div class="blackMask"></div><div class="text"></div></div></div>');
         }
     }
 
@@ -70,7 +70,7 @@
 
         $page.find('.jimi').css({
             position: 'absolute',
-            top: '92%',
+            top: '93%',
             left: '59%',
         })
         $page.find('.logo').css({
@@ -96,32 +96,56 @@
                 width: winW * 0.27,
                 height: winW * 0.27,
                 border: '5px solid #eee',
+                //'box-sizing': 'border-box',
                 perspective: '200px',
                 'box-shadow': '3px 3px 3px rgba(0,0,0,0.2)',
-                'overflow': 'hidden',
-
+                //'overflow': 'hidden',
             }).velocity({
                 'translateX': '-50%',
                 'translateY': '-50%',
-            })
+            }, 0)
 
             $(e).find('.sec').css({
-                width: winW * 0.27,
-                height: winW * 0.27,
-                background: 'white',
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: winW * 0.27 - 0,
+                height: winW * 0.27 - 0,
                 'backface-visibility': 'hidden',
+                '-webkit-backface-visibility': 'hidden',
                 'text-align': 'center',
                 opacity: 0,
-                'box-sizing': 'border-box',
-                'padding': '2px 2px 3px',
+
+
             }).find('img').css({
-                height: '50%',
+                display: 'block',
+                height: '100%',
+                width: '100%',
+                margin: '0 auto',
+                'overflow': 'hidden',
+            })
+
+            $(e).find('.blackMask').css({
+                position: 'absolute',
+                top: '0%',
+                left: '0%',
+                width: '100%',
+                height: '100%',
+                background: 'rgba(0,0,0,0.5)',
             })
 
             $(e).find('.text').css({
                 'font-size': '12px',
-                height: '50%',
-                color: '#ccc',
+                color: '#fff',
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                width: '100%',
+                transform: 'translateX(-50%) translateY(-50%)',
+                '-webkit-transform': 'translateX(-50%) translateY(-50%)',
+                'box-sizing': 'border-box',
+                'padding': '5px',
+
             })
         })
 
@@ -137,7 +161,10 @@
         })
 
         $page.find('.btn1').click(function () {
-            window.location.reload();
+            localStorage.removeItem('jimiProducts');
+            setTimeout(function () {
+                window.location.href = 'http://n1.jimi.la/apps_T1/WebJsonpTest/index/index.html';
+            }, 10)
         })
 
         $page.find('.btn2').click(function () {
@@ -169,52 +196,35 @@
     BindEvent();
 
 
-    function In() {
+    function In(ifDirect) {
         var delay = 0;
-        var defaultArr = [{
-            "pname": "资生堂亲肤净透卸妆霜",
-            "url": "www.jd.com",
-            "imgUrl": "http://7xo2me.com1.z0.glb.clouddn.com/images/qinfu.jpg",
-            "online_price": "189.00"
-        }, {
-            "pname": "资生堂洗颜专科柔澈泡沫洁面乳",
-            "url": "www.jd.com",
-            "imgUrl": "http://7xo2me.com1.z0.glb.clouddn.com/proImg/image_20160325_56f4d0e0b990f.jpg",
-            "online_price": "45.00"
-        }, {
-            "pname": "资生堂悦薇珀翡焕活洁面膏",
-            "url": "www.jd.com",
-            "imgUrl": "http://7xo2me.com1.z0.glb.clouddn.com/proImg/image_20160325_56f4b757544c6.jpg",
-            "online_price": "285.00"
-        }, {
-            "pname": "资生堂亲肤净透卸妆霜",
-            "url": "www.jd.com",
-            "imgUrl": "http://7xo2me.com1.z0.glb.clouddn.com/images/qinfu.jpg",
-            "online_price": "189.00"
-        }, {
-            "pname": "资生堂洗颜专科柔澈泡沫洁面乳",
-            "url": "www.jd.com",
-            "imgUrl": "http://7xo2me.com1.z0.glb.clouddn.com/proImg/image_20160325_56f4d0e0b990f.jpg",
-            "online_price": "45.00"
-        }, {
-            "pname": "资生堂悦薇珀翡焕活洁面膏",
-            "url": "www.jd.com",
-            "imgUrl": "http://7xo2me.com1.z0.glb.clouddn.com/proImg/image_20160325_56f4b757544c6.jpg",
-            "online_price": "285.00"
-        }];
-        var products = GM.products || defaultArr;
 
+        var products = JSON.parse(localStorage.getItem('jimiProducts')).data;
+
+        //如果根据localStorage直接进...............
+        if (ifDirect) {
+            //设置文字 图片.....
+            $page.find('.stage').each(function (i, e) {
+                $(e).find('.sec img').attr({src: products[i].imgUrl});
+                $(e).find('.sec .text').html(products[i].pname);
+                $(e).click(function () {
+                    window.location.href = products[i].url;
+                })
+            });
+        }
 
         //六个图定位..............................................
         //图片在controller已经加载了
-        $page.find('.stage').each(function (i, e) {
-            $(e).find('.sec').velocity({
-                rotateY: 540,
-                opacity: 1
+        $page.find('.sec').each(function (i, e) {
+            $(e).velocity({
+                rotateY: 180,
+                opacity: 0,
             }, 0)
                 .delay(500 + i * 100).velocity({
-                    rotateY: 0,
-                }, 1600, ease);
+                    rotateY: -0.1,
+                    opacity: 1,
+
+                }, 2000, ease);
 
         });
 

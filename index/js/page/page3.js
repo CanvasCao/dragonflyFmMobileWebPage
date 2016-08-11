@@ -60,7 +60,7 @@
         $page.find('.maskTxt').css({
             position: 'absolute',
             color: 'white',
-            top: "42%",
+            top: "40%",
             left: "50%",
             opacity: 0,
         })
@@ -93,7 +93,7 @@
         $page.find('.maskTxt')
             .velocity({'translateX': '-50%'}, 0)
             .velocity('transition.bounceDownIn', 1000, ease)
-            .delay(1500).velocity('fadeOut', 'fast', ease, function () {
+            .delay(1000).velocity('fadeOut', 'fast', ease, function () {
                 splitOut();
             })
 

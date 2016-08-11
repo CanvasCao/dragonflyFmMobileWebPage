@@ -223,7 +223,6 @@
 
 
         }
-
         else if (num == 4) {
             $page.append('<img class="building" src="img/icon/4/building.png" width="70%">');
             $page.append('<img class="des" src="img/page4/txt4.png"  width="50%"/>');
@@ -346,8 +345,9 @@
         else if (num == 6) {
             $page.append('<img class="countryside" src="img/icon/6/countryside.png" width="80%">');
             $page.append('<img class="des" src="img/page4/txt6.png"  width="50%"/>');
-            $page.append('<img class="nature1" src="img/icon/6/nature1.png"  width="70%"/>');
-            $page.append('<img class="nature2" src="img/icon/6/nature1.png"  width="70%"/>');
+            $page.append('<img class="nature1" src="img/icon/6/nature1.png"  width="65%"/>');
+            $page.append('<img class="nature2" src="img/icon/6/nature2.png"  width="50%"/>');
+            $page.append('<img class="nature3" src="img/icon/6/nature3.png"  width="70%"/>');
 
 
             $page.find(".countryside")
@@ -368,20 +368,28 @@
             $page.find(".nature1").delay(delay += 50)
                 .css({
                     top: '70%',
-                    left: '0%',
+                    left: '-9%',
                 })
                 .velocity('transition.bounceDownIn', 1000, ease)
 
+
             $page.find(".nature2").delay(delay += 50)
                 .css({
-                    top: '70%',
-                    left: '30%',
+                    top: '66%',
+                    left: '44%',
+                })
+                .velocity('transition.bounceDownIn', 1000, ease)
+
+
+            $page.find(".nature3").delay(delay += 50)
+                .css({
+                    top: '80%',
+                    left: '29%',
                 })
                 .velocity('transition.bounceDownIn', 1000, ease, function () {
-
-
-                    $page.find(".nature1").velocity({left: '-=3%'}, {loop: true, ease: ease, duration: 2000});
-                    $page.find(".nature2").delay(400).velocity({left: '+=3%'}, {loop: true, ease: ease, duration: 2000})
+                    $page.find(".nature1").velocity({left: '-=2%'}, {loop: true, ease: ease, duration: 1000});
+                    $page.find(".nature2").delay(400).velocity({left: '+=2%'}, {loop: true, ease: ease, duration: 1000})
+                    $page.find(".nature3").delay(800).velocity({left: '-=2%'}, {loop: true, ease: ease, duration: 1000})
                 })
 
         }
@@ -417,10 +425,10 @@
 
 
             //第三页换第四页............
-            setTimeout(function () {
-                console.log(GM.form);
-                DoPageChange(GM.pageIndex + 1);
-            }, (audioLengthArray[picNum] + 4) * 1000);
+            //setTimeout(function () {
+            //    console.log(GM.form);
+            //    DoPageChange(GM.pageIndex + 1);
+            //}, (audioLengthArray[picNum] + 3) * 1000);
         });
     }
 

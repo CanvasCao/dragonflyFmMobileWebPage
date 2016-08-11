@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="css/main.css"/>
     <link rel="stylesheet" href="css/loading.css"/>
+    <link rel="shortcut icon" href="http://n1.jimi.la/apps_T1/WebJsonpTest/index/img/300plus.png">
     <style type="text/css">
 
         #container {
@@ -56,9 +57,12 @@
 
     </style>
 
-    <title></title>
+    <title>别让你的脸，配不上你想去的景点</title>
 </head>
 <body>
+
+<!--第一张大于300的会作为微信的分享图-->
+<img src="http://n1.jimi.la/apps_T1/WebJsonpTest/index/img/300plus.png" width="0" height="0"/>
 
 <div id='container'>
     <div class='page page1'>
@@ -101,72 +105,88 @@
 
 <script>
     $(function () {
+        controller.dadian();
+
         //FastClick.....................................................
         FastClick.attach(document.body);
 
-
+        //JqObj................................
         var $loading = $('#loading');
-        $loading.velocity({opacity: 1}, 1500, 'ease', function () {
-            afterLoading();
-        });
+        var $loadingDragonfly = $loading.find('.loadingDragonfly');
+        var $loadingCount = $loading.find('.loadingCount');
+        var $loadingLogo = $loading.find('.loadingLogo');
+        var timer = null;
+        var timer2 = null;
+        var timer2Index = 1;
+        var ease = 'easeInOutQuart';
 
 
-        //loading页淡入后开始增加渐变....................................
-        function afterLoading() {
-            var $loadingDragonfly = $loading.find('.loadingDragonfly');
-            var $loadingCount = $loading.find('.loadingCount');
-            var $loadingLogo = $loading.find('.loadingLogo');
-            var timer = null;
-            var timer2 = null;
-            var timer2Index = 1;
-            var ease = 'easeInOutQuart';
+        //localStroage...............
+        var jimiProducts = localStorage.getItem('jimiProducts');
 
-
-            //蜻蜓飞入.................................................
-            $loadingDragonfly
-                    .velocity({top: '0%', left: '100%'}, 0)
-                    .velocity({top: '20%', left: '70%'}, 600, ease)
-                    .velocity({top: '50%', left: '50%'}, 600, ease, function () {
-                        //飞入后开始加载..................................
-                        timer = setInterval(function () {
-                            $loadingLogo.velocity({
-                                rotateZ: '+=120',
-                            }, {duration: 200, easing: 'linear'});
-                        }, 201)
-                        timer2 = setInterval(function () {
-                            $loadingDragonfly.attr({src: 'img/flydragon/' + timer2Index + '.png'});
-                            timer2Index++;
-                            timer2Index = (timer2Index >= 4) ? 1 : timer2Index;
-                        }, 40)
-
-
-                        $loadingCount.html('0%');
-                        //同时开始加载资源..............................
-                        var resource = new Resources('package.json', function (alreayLoadNumber, totalNum, imgsArray) {
-
-                            if (alreayLoadNumber != totalNum) {
-                                var num = (alreayLoadNumber / totalNum) > 1 ? 1 : (alreayLoadNumber / totalNum);
-                                $loadingCount.html(parseInt(num * 100) + '%');
-                            }
-                            else if (alreayLoadNumber == totalNum) {
-
-                                $('#container').velocity({opacity: 1}, 1000, ease, function () {
-                                    $loadingCount.html('100%');
-                                    clearInterval(timer);//logo停
-                                    clearInterval(timer2);//蜻蜓停
-
-
-                                    //停止运动 移动到第一页
-                                    setTimeout(function () {
-                                        $loading.delay(0).velocity({translateY: -$(window).height()}, 'normal', ease);
-                                        DoPageChange(0);
-                                    }, 0);
-                                });
-                            }
-                        })
-                    });
-
+        //加载过产品...
+        if (jimiProducts) {
+            $('#container').velocity({opacity: 1}, 1000, ease);
+            $loading.velocity({opacity: 1, translateY: -$(window).height()}, 0);
+            GM.$pages.eq(5).velocity({translateY: 0}, 0);
+            AnimateInArr[5](true);//true代表直接加载
         }
+        //没有加载过产品...
+        else {
+            $loading.velocity({opacity: 1}, 1500, 'ease', function () {
+                afterLoadingAppear();
+            });
+
+            //loading页淡入后开始增加渐变....................................
+            function afterLoadingAppear() {
+
+                //蜻蜓飞入.................................................
+                $loadingDragonfly
+                        .velocity({top: '0%', left: '100%'}, 0)
+                        .velocity({top: '20%', left: '70%'}, 600, ease)
+                        .velocity({top: '50%', left: '50%'}, 600, ease, function () {
+                            //飞入后开始加载..................................
+                            timer = setInterval(function () {
+                                $loadingLogo.velocity({
+                                    rotateZ: '+=120',
+                                }, {duration: 200, easing: 'linear'});
+                            }, 201)
+                            timer2 = setInterval(function () {
+                                $loadingDragonfly.attr({src: 'img/flydragon/' + timer2Index + '.png'});
+                                timer2Index++;
+                                timer2Index = (timer2Index >= 4) ? 1 : timer2Index;
+                            }, 40)
+
+
+                            $loadingCount.html('0%');
+                            //同时开始加载资源..............................
+                            var resource = new Resources('package.json', function (alreayLoadNumber, totalNum, imgsArray) {
+
+                                if (alreayLoadNumber != totalNum) {
+                                    var num = (alreayLoadNumber / totalNum) > 1 ? 1 : (alreayLoadNumber / totalNum);
+                                    $loadingCount.html(parseInt(num * 100) + '%');
+                                }
+                                else if (alreayLoadNumber == totalNum) {
+
+                                    $('#container').velocity({opacity: 1}, 1000, ease, function () {
+                                        $loadingCount.html('100%');
+                                        clearInterval(timer);//logo停
+                                        clearInterval(timer2);//蜻蜓停
+
+
+                                        //停止运动 移动到第一页
+                                        setTimeout(function () {
+                                            $loading.delay(0).velocity({translateY: -$(window).height()}, 'normal', ease);
+                                            DoPageChange(0);
+                                        }, 0);
+                                    });
+                                }
+                            })
+                        });
+
+            }
+        }
+
     })
 </script>
 </body>

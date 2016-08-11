@@ -10,10 +10,11 @@
 <script>
     $(function () {
         $.ajax({
-            type: "post",
-            url: 'http://n1.jimi.la/apps_T1/getOpenApiUrl.php',
+            type: "get",
+//            url: 'http://n1.jimi.la/apps_T1/getOpenApiUrl.php',
+            url: 'http://n1.jimi.la/apps_T1/AddActiveVisitTimes.com.php?aid=1',
 //                url: 'package.json',
-            data: {sex: "0", is_sexprice: "1", is_buy_series: "1", envment: "3"},
+//            data: {sex: "0", is_sexprice: "1", is_buy_series: "1", envment: "3"},
             dataType: "jsonp",
             jsonp: "callback",//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)
             jsonpCallback: "jsonpcallback",

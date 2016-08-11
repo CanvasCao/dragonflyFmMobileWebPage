@@ -49,7 +49,7 @@
             top: '15%',
             left: '50%',
             transform: 'translateX(-50%)',
-            opacity:0,
+            opacity: 0,
         })
 
         $page.find('#p2Option').css({
@@ -84,7 +84,6 @@
         }).find('img').css({
             width: '100%',
         })
-
 
 
     }
@@ -139,21 +138,21 @@
         var delay = 0;
 
         $page.find('#p2Title').eq(0).delay(0)
-            .velocity({translateX:'-50%'},0)
+            .velocity({translateX: '-50%'}, 0)
             .velocity('transition.slideDownIn', 1500, ease)
 
 
         $page.find('.question').eq(0).delay(delay += 200)
-            .velocity({opacity:0,translateY:-100},0)
-            .velocity({opacity:1,translateY:0}, 1500, ease)
+            .velocity({opacity: 0, translateY: -100}, 0)
+            .velocity({opacity: 1, translateY: 0}, 1500, ease)
 
         $page.find('.question').eq(1).delay(delay += 200)
-            .velocity({opacity:0,translateY:-100},0)
-            .velocity({opacity:0.2,translateY:0}, 1500, ease)
+            .velocity({opacity: 0, translateY: -100}, 0)
+            .velocity({opacity: 0.2, translateY: 0}, 1500, ease)
 
         $page.find('.question').eq(2).delay(delay += 200)
-            .velocity({opacity:0,translateY:-100},0)
-            .velocity({opacity:0.1,translateY:0}, 1500, ease)
+            .velocity({opacity: 0, translateY: -100}, 0)
+            .velocity({opacity: 0.1, translateY: 0}, 1500, ease)
 
     }
 
@@ -161,6 +160,7 @@
 
 
     function Out() {
+
     }
 
     AnimateOutArr[pageIndex] = Out;
