@@ -53,16 +53,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="page6.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="page6.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/page/page6.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.379562">
-              <caret line="140" column="46" selection-start-line="140" selection-start-column="46" selection-end-line="140" selection-end-column="46" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
               <folding>
-                <marker date="1470988268647" expanded="true" signature="378:390" placeholder="..." />
-                <marker date="1470988268647" expanded="true" signature="474:486" placeholder="..." />
-                <marker date="1470988268647" expanded="true" signature="1112:1122" placeholder="..." />
+                <marker date="1470988822916" expanded="true" signature="378:390" placeholder="..." />
+                <marker date="1470988822916" expanded="true" signature="474:486" placeholder="..." />
+                <marker date="1470988822916" expanded="true" signature="888:898" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="page5.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/page/page5.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.35036495">
+              <caret line="22" column="53" selection-start-line="22" selection-start-column="53" selection-end-line="22" selection-end-column="53" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -96,7 +106,6 @@
         <option value="$PROJECT_DIR$/js/resources/resources.js" />
         <option value="&lt;7071f608-e75d-4a7c-a0e5-f1974c940b18&gt;/WebJsonpTest/index/js/resources/resources.js" />
         <option value="$PROJECT_DIR$/indexAbsolute.html" />
-        <option value="$PROJECT_DIR$/js/page/page5.js" />
         <option value="$PROJECT_DIR$/css/loading.css" />
         <option value="$PROJECT_DIR$/js/page/index.js" />
         <option value="$PROJECT_DIR$/js/page/page1.js" />
@@ -115,6 +124,7 @@
         <option value="$PROJECT_DIR$/js/page/page4.js" />
         <option value="&lt;7071f608-e75d-4a7c-a0e5-f1974c940b18&gt;/WebJsonpTest/index/js/page/page6.js" />
         <option value="$PROJECT_DIR$/js/page/page6.js" />
+        <option value="$PROJECT_DIR$/js/page/page5.js" />
       </list>
     </option>
   </component>
@@ -171,6 +181,38 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="index" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="index" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="index" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="index" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="index" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="page" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -258,10 +300,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <editor active="false" />
     <layout>
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22236504" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22236504" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21658097" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="版本控制" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -463,13 +505,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/page/page5.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="48" column="18" selection-start-line="48" selection-start-column="18" selection-end-line="48" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/page/page1.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.2419355">
@@ -613,13 +648,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/page/page6.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.379562">
-          <caret line="140" column="46" selection-start-line="140" selection-start-column="46" selection-end-line="140" selection-end-column="46" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
           <folding>
-            <marker date="1470988268647" expanded="true" signature="378:390" placeholder="..." />
-            <marker date="1470988268647" expanded="true" signature="474:486" placeholder="..." />
-            <marker date="1470988268647" expanded="true" signature="1112:1122" placeholder="..." />
+            <marker date="1470988822916" expanded="true" signature="378:390" placeholder="..." />
+            <marker date="1470988822916" expanded="true" signature="474:486" placeholder="..." />
+            <marker date="1470988822916" expanded="true" signature="888:898" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/page/page5.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35036495">
+          <caret line="22" column="53" selection-start-line="22" selection-start-column="53" selection-end-line="22" selection-end-column="53" />
+          <folding />
         </state>
       </provider>
     </entry>

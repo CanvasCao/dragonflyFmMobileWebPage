@@ -18,6 +18,9 @@
         $page.append('<img id="p5s3" src="img/page5/3.png" width="66%"/>');
         $page.append('<img id="p5s4" src="img/page5/4.png" width="30%"/>');
 
+        $page.append('<img src="img/page6/jimi.png" class="jimi" width="20%"/>');
+        $page.append('<img src="img/page6/logo.png" class="logo" width="19%"/>');
+        $page.append('<div class="shugang">|</div>');
     }
 
     CreateDom();
@@ -32,6 +35,25 @@
             left: '50%',
             //transform: 'translateX(-50%) translateY(-50%)',
             opacity: 0,
+        })
+
+
+
+        $page.find('.jimi').css({
+            position: 'absolute',
+            top: '93%',
+            left: '59%',
+        })
+        $page.find('.logo').css({
+            position: 'absolute',
+            top: '93%',
+            left: '26%',
+        })
+        $page.find('.shugang').css({
+            position: 'absolute',
+            top: '94%',
+            left: '51%',
+            color: "#ccc",
         })
     }
 

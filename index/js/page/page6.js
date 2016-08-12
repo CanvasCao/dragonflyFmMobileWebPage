@@ -22,9 +22,6 @@
         $page.append('<img src="img/page6/btn2.png" class="btn btn2" width="25%"/>');
         $page.append('<img src="img/page6/btn3.png" class="btn btn3" width="25%"/>');
 
-        //$page.append('<img src="img/page6/jimi.png" class="jimi" width="20%"/>');
-        //$page.append('<img src="img/page6/logo.png" class="logo" width="19%"/>');
-        //$page.append('<div class="shugang">|</div>');
 
         $page.append('<div class="mask" style="z-index: 2"><img src="img/page6/share.png" class="share" width="35%"/></div>');
 
@@ -78,22 +75,6 @@
             opacity: 0,
         })
 
-        $page.find('.jimi').css({
-            position: 'absolute',
-            top: '93%',
-            left: '59%',
-        })
-        $page.find('.logo').css({
-            position: 'absolute',
-            top: '93%',
-            left: '26%',
-        })
-        $page.find('.shugang').css({
-            position: 'absolute',
-            top: '94%',
-            left: '51%',
-            color: "#ccc",
-        })
 
         //舞台定位
 
