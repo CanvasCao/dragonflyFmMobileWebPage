@@ -7,7 +7,7 @@
     controller.getProducts = function () {
         $.ajax({
             type: "post",
-            url: 'http://n1.jimi.la/apps_T1/getOpenApiUrl.php',
+            url: 'http://n1.jimi.la/openApiUrl/getOpenApiUrl.php',
 //                url: 'package.json',
             data: GM.form,
             dataType: "jsonp",
@@ -15,37 +15,6 @@
             jsonpCallback: "jsonpcallback",
             success: function (data) {
                 console.log(JSON.stringify(data));
-                var defaultArr = [{
-                    "pname": "资生堂亲肤净透卸妆霜",
-                    "url": "www.jd.com",
-                    "imgUrl": "http://7xo2me.com1.z0.glb.clouddn.com/images/qinfu.jpg",
-                    "online_price": "189.00"
-                }, {
-                    "pname": "资生堂洗颜专科柔澈泡沫洁面乳",
-                    "url": "www.jd.com",
-                    "imgUrl": "http://7xo2me.com1.z0.glb.clouddn.com/proImg/image_20160325_56f4d0e0b990f.jpg",
-                    "online_price": "45.00"
-                }, {
-                    "pname": "资生堂悦薇珀翡焕活洁面膏",
-                    "url": "www.jd.com",
-                    "imgUrl": "http://7xo2me.com1.z0.glb.clouddn.com/proImg/image_20160325_56f4b757544c6.jpg",
-                    "online_price": "285.00"
-                }, {
-                    "pname": "资生堂亲肤净透卸妆霜",
-                    "url": "www.jd.com",
-                    "imgUrl": "http://7xo2me.com1.z0.glb.clouddn.com/images/qinfu.jpg",
-                    "online_price": "189.00"
-                }, {
-                    "pname": "资生堂洗颜专科柔澈泡沫洁面乳",
-                    "url": "www.jd.com",
-                    "imgUrl": "http://7xo2me.com1.z0.glb.clouddn.com/proImg/image_20160325_56f4d0e0b990f.jpg",
-                    "online_price": "45.00"
-                }, {
-                    "pname": "资生堂悦薇珀翡焕活洁面膏",
-                    "url": "www.jd.com",
-                    "imgUrl": "http://7xo2me.com1.z0.glb.clouddn.com/proImg/image_20160325_56f4b757544c6.jpg",
-                    "online_price": "285.00"
-                }];
 
                 localStorage.setItem('jimiProducts', JSON.stringify(data));
 
@@ -73,7 +42,7 @@
     controller.dadian = function () {
         $.ajax({
             type: "get",
-            url: 'http://n1.jimi.la/apps_T1/AddActiveVisitTimes.com.php?aid=1',
+            url: 'http://n1.jimi.la/openApiUrl/AddActiveVisitTimes.com.php?aid=1',
             dataType: "jsonp",
             jsonp: "callback",//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)
             jsonpCallback: "jsonpcallback",

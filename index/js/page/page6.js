@@ -16,6 +16,8 @@
         $page.append('<img src="img/bg/bgGround.png" class="bgGround" style="opacity: 0.3"/>');
 
 
+        $page.append('<div class="buy">点<br>击<br>图<br>片<br>进<br>行<br>购<br>买</div>');
+
         $page.append('<img src="img/page6/btn1.png" class="btn btn1" width="25%"/>');
         $page.append('<img src="img/page6/btn2.png" class="btn btn2" width="25%"/>');
         $page.append('<img src="img/page6/btn3.png" class="btn btn3" width="25%"/>');
@@ -26,7 +28,6 @@
 
         $page.append('<div class="mask" style="z-index: 2"><img src="img/page6/share.png" class="share" width="35%"/></div>');
 
-
         for (i = 0; i < 6; i++) {
             $page.append('<div class="stage stage' + i + '"><div class="sec"><img /><div class="blackMask"></div><div class="text"></div></div></div>');
         }
@@ -34,9 +35,18 @@
 
     CreateDom();
 
-
     //initCss...........................
     function InitCss() {
+        $page.find('.buy').css({
+            position: 'absolute',
+            top: '40%',
+            left: '50%',
+            'font-size': '12px',
+            color: '#ccc',
+            opacity: 0,
+        })
+
+
         $page.find('.mask').css({
             position: 'absolute',
             display: 'block',
@@ -115,8 +125,6 @@
                 '-webkit-backface-visibility': 'hidden',
                 'text-align': 'center',
                 opacity: 0,
-
-
             }).find('img').css({
                 display: 'block',
                 height: '100%',
@@ -131,7 +139,7 @@
                 left: '0%',
                 width: '100%',
                 height: '100%',
-                background: 'rgba(0,0,0,0.5)',
+                background: 'rgba(0,0,0,0.3)',
             })
 
             $(e).find('.text').css({
@@ -145,7 +153,6 @@
                 '-webkit-transform': 'translateX(-50%) translateY(-50%)',
                 'box-sizing': 'border-box',
                 'padding': '5px',
-
             })
         })
 
@@ -163,8 +170,8 @@
         $page.find('.btn1').click(function () {
             localStorage.removeItem('jimiProducts');
             setTimeout(function () {
-                window.location.href = 'http://n1.jimi.la/apps_T1/WebJsonpTest/index/index.html';
-            }, 10)
+                window.location.href = window.location.href + '?time=' + new Date().getTime();
+            }, 10);
         })
 
         $page.find('.btn2').click(function () {
@@ -211,7 +218,18 @@
                     window.location.href = products[i].url;
                 })
             });
+
+
+            //$page.find('.buy').html('点<br>击<br>任<br>一<br>图<br>片<br>可<br>购<br>买<br>整<br>套');
         }
+
+
+        $page.find('.buy')
+            .velocity({
+                'translateX': '-50%',
+                'translateY': '-50%',
+            }, 0)
+            .velocity('fadeIn', {loop: true, duration: 1000});
 
         //六个图定位..............................................
         //图片在controller已经加载了

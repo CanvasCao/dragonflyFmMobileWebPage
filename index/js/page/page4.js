@@ -15,10 +15,9 @@
         var str = "<div class='section'>" +
             " <div class='secCir'><img class='secImg'/></div>" +
             "<div class='secTxt'><img/></div>" +
-            "</div>"
+            "</div>";
 
         $page.append(str);
-
     }
 
     CreateDom();
@@ -194,28 +193,28 @@
                 .css({
                     top: '47%',
                     left: '-43%',
-                    opacity:1,
+                    opacity: 1,
                 })
             $page.find(".rishai")
                 .css({
                     top: '47%',
                     left: '100%',
-                    opacity:1,
+                    opacity: 1,
 
                 })
-            $page.find(".rishai").velocity({left:'60%'}, {
+            $page.find(".rishai").velocity({left: '60%'}, {
                 loop: true,
                 duration: 100,
                 delay: 800,
             });
 
-            $page.find(".body").delay(0).velocity({left:'+=5%'}, {
+            $page.find(".body").delay(0).velocity({left: '+=5%'}, {
                 loop: true,
                 duration: 100,
                 delay: 800,
             });
 
-            $page.find(".fengchui").delay(800).velocity({left:'3%'}, {
+            $page.find(".fengchui").delay(800).velocity({left: '3%'}, {
                 loop: true,
                 duration: 100,
                 delay: 800,
@@ -349,7 +348,6 @@
             $page.append('<img class="nature2" src="img/icon/6/nature2.png"  width="50%"/>');
             $page.append('<img class="nature3" src="img/icon/6/nature3.png"  width="70%"/>');
 
-
             $page.find(".countryside")
                 .css({
                     top: '45%',
@@ -425,10 +423,10 @@
 
 
             //第三页换第四页............
-            //setTimeout(function () {
-            //    console.log(GM.form);
-            //    DoPageChange(GM.pageIndex + 1);
-            //}, (audioLengthArray[picNum] + 3) * 1000);
+            setTimeout(function () {
+                console.log(GM.form);
+                DoPageChange(GM.pageIndex + 1);
+            }, (audioLengthArray[picNum] + 3) * 1000);
         });
     }
 
