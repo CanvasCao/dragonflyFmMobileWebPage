@@ -16,7 +16,7 @@
         $page.append('<img src="img/bg/bgGround.png" class="bgGround" style="opacity: 0.3"/>');
 
 
-        $page.append('<div class="buy">点<br>击<br>图<br>片<br>进<br>行<br>购<br>买</div>');
+        //$page.append('<div class="buy">点<br>击<br>图<br>片<br>进<br>行<br>购<br>买</div>');
 
         $page.append('<img src="img/page6/btn1.png" class="btn btn1" width="25%"/>');
         $page.append('<img src="img/page6/btn2.png" class="btn btn2" width="25%"/>');
@@ -194,12 +194,12 @@
         }
 
 
-        $page.find('.buy')
-            .velocity({
-                'translateX': '-50%',
-                'translateY': '-50%',
-            }, 0)
-            .velocity('fadeIn', {loop: true, duration: 1000});
+        //$page.find('.buy')
+        //    .velocity({
+        //        'translateX': '-50%',
+        //        'translateY': '-50%',
+        //    }, 0)
+        //    .velocity('fadeIn', {loop: true, duration: 1000});
 
         //六个图定位..............................................
         //图片在controller已经加载了

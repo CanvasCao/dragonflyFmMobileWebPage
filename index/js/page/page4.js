@@ -395,7 +395,7 @@
 
 
     function In(num) {
-        var audioLengthArray = [null, 4, 6, 4, 4, 3, 3];
+        //var audioLengthArray = [null, 4, 6, 4, 4, 3, 3];
 
         picNum = num || 3;
 
@@ -426,7 +426,7 @@
             setTimeout(function () {
                 console.log(GM.form);
                 DoPageChange(GM.pageIndex + 1);
-            }, (audioLengthArray[picNum] + 3) * 1000);
+            }, 4000);
         });
     }
 

@@ -37,8 +37,6 @@
             opacity: 0,
         })
 
-
-
         $page.find('.jimi').css({
             position: 'absolute',
             top: '93%',
