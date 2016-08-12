@@ -24,7 +24,7 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="22.538462">
+            <state vertical-scroll-proportion="48.5">
               <caret line="46" column="9" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
               <folding>
                 <element signature="e#830#986#0" expanded="false" />
@@ -56,12 +56,12 @@
       <file leaf-file-name="page6.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/page/page6.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3941606">
-              <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+            <state vertical-scroll-proportion="1.379562">
+              <caret line="140" column="46" selection-start-line="140" selection-start-column="46" selection-end-line="140" selection-end-column="46" />
               <folding>
-                <marker date="1470986466261" expanded="true" signature="376:388" placeholder="..." />
-                <marker date="1470986466261" expanded="true" signature="472:484" placeholder="..." />
-                <marker date="1470986466261" expanded="true" signature="1104:1114" placeholder="..." />
+                <marker date="1470988268647" expanded="true" signature="378:390" placeholder="..." />
+                <marker date="1470988268647" expanded="true" signature="474:486" placeholder="..." />
+                <marker date="1470988268647" expanded="true" signature="1112:1122" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -258,7 +258,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22236504" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -599,7 +599,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="22.538462">
+        <state vertical-scroll-proportion="48.5">
           <caret line="46" column="9" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
           <folding>
             <element signature="e#830#986#0" expanded="false" />
@@ -613,12 +613,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/page/page6.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3941606">
-          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+        <state vertical-scroll-proportion="1.379562">
+          <caret line="140" column="46" selection-start-line="140" selection-start-column="46" selection-end-line="140" selection-end-column="46" />
           <folding>
-            <marker date="1470986466261" expanded="true" signature="376:388" placeholder="..." />
-            <marker date="1470986466261" expanded="true" signature="472:484" placeholder="..." />
-            <marker date="1470986466261" expanded="true" signature="1104:1114" placeholder="..." />
+            <marker date="1470988268647" expanded="true" signature="378:390" placeholder="..." />
+            <marker date="1470988268647" expanded="true" signature="474:486" placeholder="..." />
+            <marker date="1470988268647" expanded="true" signature="1112:1122" placeholder="..." />
           </folding>
         </state>
       </provider>

@@ -12,7 +12,7 @@
     function CreateDom() {
 
 
-        $page.append('<img src="img/bg/bgSky.png" class="bgSky" style="opacity: 0.3"/>');
+        //$page.append('<img src="img/bg/bgSky.png" class="bgSky" style="opacity: 0.3"/>');
         $page.append('<img src="img/bg/bgGround.png" class="bgGround" style="opacity: 0.3"/>');
 
 
@@ -22,14 +22,14 @@
         $page.append('<img src="img/page6/btn2.png" class="btn btn2" width="25%"/>');
         $page.append('<img src="img/page6/btn3.png" class="btn btn3" width="25%"/>');
 
-        $page.append('<img src="img/page6/jimi.png" class="jimi" width="20%"/>');
-        $page.append('<img src="img/page6/logo.png" class="logo" width="19%"/>');
-        $page.append('<div class="shugang">|</div>');
+        //$page.append('<img src="img/page6/jimi.png" class="jimi" width="20%"/>');
+        //$page.append('<img src="img/page6/logo.png" class="logo" width="19%"/>');
+        //$page.append('<div class="shugang">|</div>');
 
         $page.append('<div class="mask" style="z-index: 2"><img src="img/page6/share.png" class="share" width="35%"/></div>');
 
         for (i = 0; i < 6; i++) {
-            $page.append('<div class="stage stage' + i + '"><div class="sec"><img /><div class="blackMask"></div><div class="text"></div></div></div>');
+            $page.append('<div class="stage stage' + i + '"><div class="sec"><img /><div class="text"></div></div></div>');
         }
     }
 
@@ -60,7 +60,7 @@
 
         $page.find('.btn').css({
             position: 'absolute',
-            top: '83%',
+            top: '90%',
             left: '50%',
             transform: 'translateX(-50%) translateY(-50%)',
         })
@@ -105,10 +105,8 @@
                 left: posArr[i][1] + '%',
                 width: winW * 0.27,
                 height: winW * 0.27,
-                border: '5px solid #eee',
+                //border: '1px solid black',
                 //'box-sizing': 'border-box',
-                perspective: '200px',
-                'box-shadow': '3px 3px 3px rgba(0,0,0,0.2)',
                 //'overflow': 'hidden',
             }).velocity({
                 'translateX': '-50%',
@@ -133,24 +131,15 @@
                 'overflow': 'hidden',
             })
 
-            $(e).find('.blackMask').css({
-                position: 'absolute',
-                top: '0%',
-                left: '0%',
-                width: '100%',
-                height: '100%',
-                background: 'rgba(0,0,0,0.3)',
-            })
-
             $(e).find('.text').css({
                 'font-size': '12px',
-                color: '#fff',
+                color: '#999',
                 position: 'absolute',
-                top: '50%',
+                top: '99%',
                 left: '50%',
-                width: '100%',
-                transform: 'translateX(-50%) translateY(-50%)',
-                '-webkit-transform': 'translateX(-50%) translateY(-50%)',
+                width: '120%',
+                transform: 'translateX(-50%)',
+                '-webkit-transform': 'translateX(-50%)',
                 'box-sizing': 'border-box',
                 'padding': '5px',
             })
@@ -235,15 +224,11 @@
         //图片在controller已经加载了
         $page.find('.sec').each(function (i, e) {
             $(e).velocity({
-                rotateY: 180,
                 opacity: 0,
             }, 0)
                 .delay(500 + i * 100).velocity({
-                    rotateY: -0.1,
                     opacity: 1,
-
-                }, 2000, ease);
-
+                }, 1000, ease);
         });
 
     }
