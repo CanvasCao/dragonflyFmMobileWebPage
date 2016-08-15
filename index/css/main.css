@@ -27,6 +27,11 @@ input, button, select, textarea {
     user-select: text;
 }
 
+img {
+    border: 0px;
+    display: block;
+}
+
 .bgSky {
     position: absolute;
     top: 5%;
@@ -43,7 +48,7 @@ input, button, select, textarea {
 
 }
 
-audio{
+audio {
     opacity: 0;
     width: 0;
     height: 0;

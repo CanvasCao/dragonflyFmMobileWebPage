@@ -54,6 +54,12 @@
             opacity: 0;
         }
 
+        .bgm {
+            position: fixed;
+            width: 8%;
+            top: 3%;
+            right: 3%;
+        }
 
     </style>
 
@@ -65,7 +71,6 @@
 
 <div id='container'>
     <div class='page page1'>
-        <!--<img src="img/background/1.png" width="100%" />-->
         <!--<div class='up'>1</div>-->
         <!--<div class='down'>1</div>-->
     </div>
@@ -84,6 +89,8 @@
 
     <div class='loadingCount'></div>
 </div>
+
+<img class='bgm'/>
 
 
 <script src="http://apps.bdimg.com/libs/jquery/1.8.3/jquery.min.js"></script>
@@ -150,12 +157,12 @@
                                 $loadingLogo.velocity({
                                     rotateZ: '+=120',
                                 }, {duration: 200, easing: 'linear'});
-                            }, 201)
+                            }, 201);
                             timer2 = setInterval(function () {
                                 $loadingDragonfly.attr({src: 'img/flydragon/' + timer2Index + '.png'});
                                 timer2Index++;
                                 timer2Index = (timer2Index >= 4) ? 1 : timer2Index;
-                            }, 40)
+                            }, 40);
 
 
                             $loadingCount.html('0%');
@@ -173,6 +180,30 @@
                                         clearInterval(timer);//logo停
                                         clearInterval(timer2);//蜻蜓停
 
+                                        //BGM..................
+                                        $('#audiobgm').attr('loop', 'loop');
+                                        $('#audiobgm')[0].play();
+
+                                        //BGM图标.................
+                                        var ifon = true;
+                                        $('.bgm').attr({src: 'img/on.png'})
+                                                .velocity({rotateZ: 360}, {
+                                                    loop: true,
+                                                    duration: 2000,
+                                                    delay: -1,
+                                                    ease: 'linear'
+                                                })
+                                                .click(function () {
+                                                    ifon = !ifon;
+                                                    if (ifon) {
+                                                        $(this).attr({src: 'img/on.png'})
+                                                        $('#audiobgm')[0].play();
+                                                    } else {
+                                                        $(this).attr({src: 'img/off.png'})
+                                                        $('#audiobgm')[0].pause();
+
+                                                    }
+                                                })
 
                                         //停止运动 移动到第一页
                                         setTimeout(function () {

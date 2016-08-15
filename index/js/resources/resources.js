@@ -45,21 +45,21 @@ Resources.prototype = {
                 [].forEach.call(data.audios, function (e, i, array) {
 
                     var audioObj = e;
-                    $('body').append('<audio preload="auto" id="audio' + i + '"></audio>');
+                    $('body').append('<audio preload="auto" id="audio' + e.name + '"></audio>');
 
-                    $('body').find('#audio' + i).attr('src', e.src);
+                    $('body').find('#audio' + e.name).attr('src', e.src);
 
-                    $('body').find('#audio' + i).bind("canplaythrough suspend", function (event) {
+                    $('body').find('#audio' + e.name).bind("canplaythrough suspend", function (event) {
 
                         alreayLoadNumber++;
-                        that.imgs[e.name] = this;//this指image对象
+                        that.audios[e.name] = this;//this指image对象
 
                         //$('body').find('#audio' + i)[0].load();
 
                         //console.log(alreayLoadNumber);
                         that.callback(alreayLoadNumber, totalLength, that.audios);
                     });
-                    $('body').find('#audio' + i).bind("error", function (event) {
+                    $('body').find('#audio' + e.name).bind("error", function (event) {
                         alreayLoadNumber++;
                         that.callback(alreayLoadNumber, totalLength, that.audios);
                     });

@@ -1,7 +1,19 @@
 {
   "audios": [
+    {
+      "name": "bgm",
+      "src": "audio/bgm.mp3"
+    }
   ],
   "images": [
+    {
+      "name": "on",
+      "src": "img/on.png"
+    },
+    {
+      "name": "off",
+      "src": "img/off.png"
+    },
     {
       "name": "bgSky",
       "src": "img/bg/bgSky.png"
@@ -125,6 +137,10 @@
     {
       "name": "p4s6",
       "src": "img/page4/6.png"
+    },
+    {
+      "name": "p4s6",
+      "src": "img/page4/blue.jpg"
     },
     {
       "name": "p5s1",

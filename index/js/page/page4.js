@@ -34,11 +34,11 @@
         })
 
         $page.find('.secCir').css({
-            margin: '0 auto 5px',
+            margin: '0 auto 15px',
             width: winW / 4,
             height: winW / 4,
             'border-radius': '0%',
-            'box-shadow': '5px 5px 10px rgba(0, 0, 0, 0.3)',
+            //'box-shadow': '5px 5px 10px rgba(0, 0, 0, 0.3)',
             overflow: 'hidden',
         }).find('img').css({
             width: '100%',
@@ -404,12 +404,13 @@
 
 
         //动态设置图片...............
-        $page.find('.secImg').attr('src', 'img/page4/' + picNum + '.png');
+        //$page.find('.secImg').attr('src', 'img/page4/'+picNum+'.jpg');
+        $page.find('.secImg').attr('src', 'img/page4/blue.jpg');
 
         //放大
         $page.find('.secCir').delay(200).velocity({
-            scaleX: 4,
-            scaleY: 8,
+            scaleX:8,
+            scaleY:8,
         }, 'slow', ease, function () {
             //加载动态图
             appendIcon(picNum);
@@ -426,7 +427,7 @@
             setTimeout(function () {
                 console.log(GM.form);
                 DoPageChange(GM.pageIndex + 1);
-            }, 4000);
+            }, 5000);
         });
     }
 
