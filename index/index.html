@@ -182,28 +182,34 @@
 
                                         //BGM..................
                                         $('#audiobgm').attr('loop', 'loop');
-                                        $('#audiobgm')[0].play();
+                                        $(window).on("touchstart", function(){
+                                            $("#audiobgm")[0].play();
+
+                                            var ifon = true;
+                                            $('.bgm').attr({src: 'img/on.png'})
+                                                    .velocity({rotateZ: 360}, {
+                                                        loop: true,
+                                                        duration: 2000,
+                                                        delay: -1,
+                                                        ease: 'linear'
+                                                    })
+                                                    .click(function () {
+                                                        ifon = !ifon;
+                                                        if (ifon) {
+                                                            $(this).attr({src: 'img/on.png'})
+                                                            $('#audiobgm')[0].play();
+                                                        } else {
+                                                            $(this).attr({src: 'img/off.png'})
+                                                            $('#audiobgm')[0].pause();
+
+                                                        }
+                                                    })
+
+                                            $(this).off("touchstart");
+                                        });
 
                                         //BGM图标.................
-                                        var ifon = true;
-                                        $('.bgm').attr({src: 'img/on.png'})
-                                                .velocity({rotateZ: 360}, {
-                                                    loop: true,
-                                                    duration: 2000,
-                                                    delay: -1,
-                                                    ease: 'linear'
-                                                })
-                                                .click(function () {
-                                                    ifon = !ifon;
-                                                    if (ifon) {
-                                                        $(this).attr({src: 'img/on.png'})
-                                                        $('#audiobgm')[0].play();
-                                                    } else {
-                                                        $(this).attr({src: 'img/off.png'})
-                                                        $('#audiobgm')[0].pause();
 
-                                                    }
-                                                })
 
                                         //停止运动 移动到第一页
                                         setTimeout(function () {
