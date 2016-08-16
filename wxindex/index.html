@@ -54,13 +54,6 @@
             opacity: 0;
         }
 
-        .bgm {
-            position: fixed;
-            width: 8%;
-            top: 3%;
-            right: 3%;
-        }
-
     </style>
 
     <title>别让你的脸，配不上你想去的景点</title>
@@ -179,34 +172,6 @@
                                         $loadingCount.html('100%');
                                         clearInterval(timer);//logo停
                                         clearInterval(timer2);//蜻蜓停
-
-                                        //BGM..................
-                                        $('#audiobgm').attr('loop', 'loop');
-                                        $(window).on("touchstart", function () {
-                                            $("#audiobgm")[0].play();
-
-                                            var ifon = true;
-                                            $('.bgm').attr({src: 'img/on.png'})
-                                                    .velocity({rotateZ: 360}, {
-                                                        loop: true,
-                                                        duration: 2000,
-                                                        delay: -1,
-                                                        ease: 'linear'
-                                                    })
-                                                    .click(function () {
-                                                        ifon = !ifon;
-                                                        if (ifon) {
-                                                            $(this).attr({src: 'img/on.png'})
-                                                            $('#audiobgm')[0].play();
-                                                        } else {
-                                                            $(this).attr({src: 'img/off.png'})
-                                                            $('#audiobgm')[0].pause();
-
-                                                        }
-                                                    })
-
-                                            $(this).off("touchstart");
-                                        });
 
 
                                         //停止运动 移动到第一页
