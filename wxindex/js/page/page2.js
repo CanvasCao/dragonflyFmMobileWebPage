@@ -86,7 +86,6 @@
             width: '100%',
         })
 
-
     }
 
     InitCss();
@@ -124,7 +123,7 @@
                         if (clickIndex == $page.find('.question').length) {
                             setTimeout(function () {
                                 DoPageChange(GM.pageIndex + 1);
-                            }, 200);
+                            }, 1500);
                         }
                     });
 
@@ -138,6 +137,10 @@
 
     function In() {
         var delay = 0;
+
+        setTimeout(function(){
+            $('#audiopangbai2')[0].play();
+        },400);
 
         $page.find('#p2Title').eq(0).delay(0)
             .velocity({translateX: '-50%'}, 0)

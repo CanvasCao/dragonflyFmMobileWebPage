@@ -93,7 +93,7 @@
         $page.find('.maskTxt')
             .velocity({'translateX': '-50%'}, 0)
             .velocity('transition.bounceDownIn', 1000, ease)
-            .delay(1000).velocity('fadeOut', 'fast', ease, function () {
+            .delay(2500).velocity('fadeOut', 'fast', ease, function () {
                 splitOut();
             })
 
@@ -178,6 +178,9 @@
 
 
     function In() {
+        setTimeout(function () {
+            $('#audiopangbai3')[0].play();
+        }, 500)
         initCss();
         bindEvent();
         initPos();

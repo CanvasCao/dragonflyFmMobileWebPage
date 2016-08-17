@@ -47,6 +47,18 @@
     {
       "name": "answer6",
       "src": "audio/answer6.mp3"
+    },
+    {
+      "name": "pangbai1",
+      "src": "audio/pangbai1.mp3"
+    },
+    {
+      "name": "pangbai2",
+      "src": "audio/pangbai2.mp3"
+    },
+    {
+      "name": "pangbai3",
+      "src": "audio/pangbai3.mp3"
     }
   ],
   "images": [

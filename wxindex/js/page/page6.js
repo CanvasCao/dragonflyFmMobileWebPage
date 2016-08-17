@@ -16,7 +16,7 @@
         $page.append('<img src="img/bg/bgGround.png" class="bgGround" style="opacity: 0.3"/>');
 
 
-        //$page.append('<div class="buy">点<br>击<br>图<br>片<br>进<br>行<br>购<br>买</div>');
+        $page.append('<div class="buy">点击图片可进行购买</div>');
 
         $page.append('<img src="img/page6/btn1.png" class="btn btn1" width="25%"/>');
         $page.append('<img src="img/page6/btn2.png" class="btn btn2" width="25%"/>');
@@ -36,7 +36,7 @@
     function InitCss() {
         $page.find('.buy').css({
             position: 'absolute',
-            top: '40%',
+            top: '3%',
             left: '50%',
             'font-size': '12px',
             color: '#ccc',
@@ -77,7 +77,6 @@
 
 
         //舞台定位
-
         var posArr = [[15, 30], [15, 70], [40, 30], [40, 70], [65, 30], [65, 70],];
         $page.find('.stage').each(function (i, e) {
             $(e).css({
@@ -194,12 +193,12 @@
         }
 
 
-        //$page.find('.buy')
-        //    .velocity({
-        //        'translateX': '-50%',
-        //        'translateY': '-50%',
-        //    }, 0)
-        //    .velocity('fadeIn', {loop: true, duration: 1000});
+        $page.find('.buy')
+            .velocity({
+                'translateX': '-50%',
+                'translateY': '-50%',
+            }, 0)
+            .velocity('fadeIn', {loop: true, duration: 1000});
 
         //六个图定位..............................................
         //图片在controller已经加载了

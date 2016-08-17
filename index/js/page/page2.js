@@ -28,12 +28,13 @@
 
         var dataKeyArray = ['sex', 'is_sexprice', 'is_buy_series'];
         var dataValueArray = [[1, 0], [1, 0], [1, 0]];
+        var dataAnswerArray = [[1, 2], [3, 4], [5, 6]];
 
         var str = '';
         for (i = 0; i < 3; i++) {
             str += '<div class="question question' + i + '">' +
-                '<div class="option1" dataKey="' + dataKeyArray[i] + '" dataValue="' + dataValueArray[i][0] + '"><img src="img/page2/' + array[i][0] + '" /></div>' +
-                '<div class="option2" dataKey="' + dataKeyArray[i] + '" dataValue="' + dataValueArray[i][1] + '"><img src="img/page2/' + array[i][1] + '" /></div>' +
+                '<div class=option1 datakey=' + dataKeyArray[i] + ' datavalue=' + dataValueArray[i][0] + ' dataanswer=' + dataAnswerArray[i][0] + '><img src="img/page2/' + array[i][0] + '" /></div>' +
+                '<div class=option2 datakey=' + dataKeyArray[i] + ' datavalue=' + dataValueArray[i][1] + ' dataanswer=' + dataAnswerArray[i][1] + '><img src="img/page2/' + array[i][1] + '" /></div>' +
                 '</div>';
         }
 
@@ -85,7 +86,6 @@
             width: '100%',
         })
 
-
     }
 
     InitCss();
@@ -95,16 +95,19 @@
         $page.find('.option1,.option2').click(function () {
             var that = this;
 
-            //点击的必须是当前问题
+            //点击的必须是当前问题 否则无效..............................
             var questionIndex = $(that).parent().index();
             if (clickIndex != questionIndex) {
                 return;
             }
             clickIndex++;
 
+            //朗读回答........................................
+            var answerNum = $(this).attr('dataanswer');
+            $('#audioanswer' + answerNum)[0].play();
 
             //记录接口参数.....................................
-            GM.form[$(that).attr('dataKey')] = $(that).attr('dataValue');
+            GM.form[$(that).attr('datakey')] = $(that).attr('datavalue');
 
             //未选中的消失
             $(that).siblings().velocity({opacity: 0}, 200, 'slow', function () {
@@ -120,14 +123,17 @@
                         if (clickIndex == $page.find('.question').length) {
                             setTimeout(function () {
                                 DoPageChange(GM.pageIndex + 1);
-                            }, 200);
+                            }, 1500);
                         }
                     });
 
                 resetQuestionOpacity();
             });
+        })
 
 
+        $page.find('.question2 div').click(function () {
+            $('#audiopangbai3')[0].play();
         })
     }
 
@@ -136,6 +142,7 @@
 
     function In() {
         var delay = 0;
+
 
         $page.find('#p2Title').eq(0).delay(0)
             .velocity({translateX: '-50%'}, 0)

@@ -45,14 +45,15 @@ Resources.prototype = {
                 [].forEach.call(data.audios, function (e, i, array) {
 
                     var audioObj = e;
-                    $('body').append('<audio preload="auto" id="audio' + e.name + '"></audio>');
+
+                    $('body').append('<audio preload="auto" id=audio' + e.name + '></audio>');
 
                     $('body').find('#audio' + e.name).attr('src', e.src);
 
                     $('body').find('#audio' + e.name).bind("canplaythrough suspend", function (event) {
 
                         alreayLoadNumber++;
-                        that.audios[e.name] = this;//this指image对象
+                        that.audios['audio' + e.name] = this;//this指image对象
 
                         //$('body').find('#audio' + i)[0].load();
 

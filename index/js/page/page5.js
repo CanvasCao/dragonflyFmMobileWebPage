@@ -73,7 +73,7 @@
             .velocity({
                 'translateX': '-50%',
                 left: '50%',
-                top: '20%'
+                top: '15%'
             }, 0)
             .velocity('transition.slideDownIn', 1500, ease)
 
@@ -81,7 +81,7 @@
             .velocity({
                 'translateX': '-50%',
                 left: '50%',
-                top: '35%'
+                top: '30%'
             }, 0)
             .velocity('transition.slideDownIn', 1500, ease)
 
@@ -89,7 +89,7 @@
             .velocity({
                 'translateX': '-50%',
                 left: '50%',
-                top: '45%'
+                top: '40%'
             }, 0)
             .velocity('transition.slideDownIn', 1500, ease)
 
@@ -97,7 +97,7 @@
             .velocity({
                 'translateX': '-50%',
                 left: '50%',
-                top: '84%'
+                top: '75%'
             }, 0)
             .velocity('transition.slideDownIn', 1500, ease, function () {
                 $page.find('#p5s4')

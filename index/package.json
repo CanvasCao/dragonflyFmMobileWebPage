@@ -1,19 +1,67 @@
 {
   "audios": [
     {
-      "name": "bgm",
-      "src": "audio/bgm.mp3"
+      "name": "1",
+      "src": "audio/1.mp3"
+    },
+    {
+      "name": "2",
+      "src": "audio/2.mp3"
+    },
+    {
+      "name": "3",
+      "src": "audio/3.mp3"
+    },
+    {
+      "name": "4",
+      "src": "audio/4.mp3"
+    },
+    {
+      "name": "5",
+      "src": "audio/5.mp3"
+    },
+    {
+      "name": "6",
+      "src": "audio/6.mp3"
+    },
+    {
+      "name": "answer1",
+      "src": "audio/answer1.mp3"
+    },
+    {
+      "name": "answer2",
+      "src": "audio/answer2.mp3"
+    },
+    {
+      "name": "answer3",
+      "src": "audio/answer3.mp3"
+    },
+    {
+      "name": "answer4",
+      "src": "audio/answer4.mp3"
+    },
+    {
+      "name": "answer5",
+      "src": "audio/answer5.mp3"
+    },
+    {
+      "name": "answer6",
+      "src": "audio/answer6.mp3"
+    },
+    {
+      "name": "pangbai1",
+      "src": "audio/pangbai1.mp3"
+    },
+    {
+      "name": "pangbai2",
+      "src": "audio/pangbai2.mp3"
+    },
+    {
+      "name": "pangbai3",
+      "src": "audio/pangbai3.mp3"
     }
   ],
   "images": [
-    {
-      "name": "on",
-      "src": "img/on.png"
-    },
-    {
-      "name": "off",
-      "src": "img/off.png"
-    },
     {
       "name": "bgSky",
       "src": "img/bg/bgSky.png"
@@ -37,6 +85,14 @@
     {
       "name": "suitcase",
       "src": "img/page1/suitcase.png"
+    },
+    {
+      "name": "finger",
+      "src": "img/page1/finger.png"
+    },
+    {
+      "name": "on",
+      "src": "img/page1/on.png"
     },
     {
       "name": "p2s0",

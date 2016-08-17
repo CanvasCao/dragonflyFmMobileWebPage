@@ -395,7 +395,7 @@
 
 
     function In(num) {
-        //var audioLengthArray = [null, 4, 6, 4, 4, 3, 3];
+        var audioLengthArray = [null, 4, 6, 4, 4, 3, 3];
 
         picNum = num || 3;
 
@@ -416,18 +416,13 @@
             appendIcon(picNum);
 
 
-            //$('audio').eq(picNum - 1)[0].load();
-            //读字
-            setTimeout(function () {
-                $('audio').eq(picNum - 1)[0].play();
-            }, 1000);
 
 
             //第三页换第四页............
             setTimeout(function () {
                 console.log(GM.form);
                 DoPageChange(GM.pageIndex + 1);
-            }, 5000);
+            }, (audioLengthArray[picNum]+3)*1000);
         });
     }
 

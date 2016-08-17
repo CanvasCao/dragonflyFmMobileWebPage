@@ -12,31 +12,96 @@
         $page.append('<img src="img/bg/bgGround.png" class="bgGround" />');
 
         $page.append('<img id="p1s1" src="img/page1/p1s1.png" width="40%"/>');
-        $page.append('<img id="p1s2" src="img/page1/p1s2.png" width="40%"/>');
-        $page.append('<img id="p1s3" src="img/page1/p1s3.png" width="20%"/>');
+        $page.append('<img id="p1s2" src="img/page1/p1s2.png" width="36%"/>');
+        $page.append('<img id="p1s3" src="img/page1/p1s3.png" width="30%"/>');
         $page.append('<img id="suitcase" src="img/page1/suitcase.png" width="30%"/>');
+
+        $page.append('<div class="mask">' +
+            '<img class="finger" src="img/page1/finger.png" width="15%"/>' +
+            '<img class="on" src="img/page1/on.png" width="24%"/>' +
+            '</div>')
     }
 
     CreateDom();
 
     function InitCss() {
-        $page.find('#p1s1,#p1s2,#p1s3,#suitcase').css({
+        $page.find('#p1s1').css({
             position: 'absolute',
-            display: 'block',
-            top: '50%',
             left: '50%',
-            opacity: 0,
+            top: '25%'
+        }).velocity({
+            translateX: '-50%',
+        }, 0)
+
+        $page.find('#p1s2').css({
+            position: 'absolute',
+            left: '50%',
+            top: '35%'
+        }).velocity({
+            translateX: '-50%',
+        }, 0)
+
+        $page.find('#p1s3').css({
+            position: 'absolute',
+            left: '50%',
+            top: '65%'
+        }).velocity({
+            translateX: '-50%',
+        }, 0)
+
+        $page.find('#suitcase').css({
+            position: 'absolute',
+            left: '50%',
+            top: '70%'
+        }).velocity({
+            translateX: '-50%',
+        }, 0, function () {
         })
 
+        $page.find('.mask').css({
+            position: 'absolute',
+            top: '0%',
+            left: '0%',
+            width: '100%',
+            height: '100%',
+            background: 'black',
+            opacity: 0.8,
+        })
 
+        $page.find('.finger').css({
+            position: 'absolute',
+            top: '53%',
+            left: '50%',
+            'pointer-events': 'none'
+        }).velocity({translateX: '-50%'}, 0)
+
+        $page.find('.on').css({
+            position: 'absolute',
+            top: '32%',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            'pointer-events': 'none'
+        })
     }
 
     InitCss();
 
 
     function BindEvent() {
+        $page.find('.mask').click(function () {
+            $(this).fadeOut();
+            $('#audiopangbai1')[0].play();
+
+            //行李箱闪烁............................
+            $page.find('#suitcase')
+                .velocity({opacity: 0.2}, {duration: 1000, loop: true});
+
+        })
+
         $page.find('#suitcase').click(function () {
             DoPageChange(GM.pageIndex + 1);
+
+                $('#audiopangbai2')[0].play();
         })
     }
 
@@ -46,42 +111,11 @@
     function In() {
         var delay = 0;
 
-
-        $page.find('#p1s1').delay(0)
-            .velocity({
-                'translateX': '-50%',
-                left: '50%',
-                top: '25%'
-            }, 0)
-            .velocity('transition.bounceDownIn', 1500, ease)
+        //手指移动..............................
+        $page.find('.finger').velocity({translateX: '-50%'}, 0)
+            .velocity({translateX: '-50%', top: '50%'}, {loop: true, duration: 1000, ease: ease});
 
 
-        $page.find('#p1s2').delay(delay += 200)
-            .velocity({
-                'translateX': '-50%',
-                left: '50%',
-                top: '35%'
-            }, 0)
-            .velocity('transition.bounceDownIn', 1500, ease)
-
-
-        $page.find('#p1s3').delay(delay += 200)
-            .velocity({
-                'translateX': '-50%',
-                left: '50%',
-                top: '65%'
-            }, 0)
-            .velocity('transition.bounceDownIn', 1500, ease)
-
-        $page.find('#suitcase').delay(delay += 200)
-            .velocity({
-                'translateX': '-50%',
-                left: '50%',
-                top: '70%'
-            }, 0).velocity('transition.bounceDownIn', 1500, ease, function () {
-                $page.find('#suitcase')
-                    .velocity({opacity: 0.2}, {duration: 1000, loop: true});
-            })
     }
 
 
@@ -89,6 +123,7 @@
 
     function Out() {
         $page.find('#suitcase').velocity('stop').velocity({opacity: 0});
+        $('#audiopangbai1')[0].pause();
     }
 
     AnimateOutArr[pageIndex] = Out;

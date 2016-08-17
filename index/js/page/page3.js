@@ -93,7 +93,7 @@
         $page.find('.maskTxt')
             .velocity({'translateX': '-50%'}, 0)
             .velocity('transition.bounceDownIn', 1000, ease)
-            .delay(1000).velocity('fadeOut', 'fast', ease, function () {
+            .delay(2500).velocity('fadeOut', 'fast', ease, function () {
                 splitOut();
             })
 
@@ -136,6 +136,10 @@
 
             //索引............
             var picNum = $(this).attr('data');
+            //setTimeout(function () {
+            $('#audio' + picNum)[0].play();
+            //}, 2500);
+
 
             //点击以后父元素回到中间
             $parent.velocity({
