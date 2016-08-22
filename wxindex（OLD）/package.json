@@ -1,0 +1,242 @@
+{
+  "audios": [
+    {
+      "name": "1",
+      "src": "audio/1.mp3"
+    },
+    {
+      "name": "2",
+      "src": "audio/2.mp3"
+    },
+    {
+      "name": "3",
+      "src": "audio/3.mp3"
+    },
+    {
+      "name": "4",
+      "src": "audio/4.mp3"
+    },
+    {
+      "name": "5",
+      "src": "audio/5.mp3"
+    },
+    {
+      "name": "6",
+      "src": "audio/6.mp3"
+    },
+    {
+      "name": "answer1",
+      "src": "audio/answer1.mp3"
+    },
+    {
+      "name": "answer2",
+      "src": "audio/answer2.mp3"
+    },
+    {
+      "name": "answer3",
+      "src": "audio/answer3.mp3"
+    },
+    {
+      "name": "answer4",
+      "src": "audio/answer4.mp3"
+    },
+    {
+      "name": "answer5",
+      "src": "audio/answer5.mp3"
+    },
+    {
+      "name": "answer6",
+      "src": "audio/answer6.mp3"
+    },
+    {
+      "name": "pangbai1",
+      "src": "audio/pangbai1.mp3"
+    },
+    {
+      "name": "pangbai2",
+      "src": "audio/pangbai2.mp3"
+    },
+    {
+      "name": "pangbai3",
+      "src": "audio/pangbai3.mp3"
+    }
+  ],
+  "images": [
+    {
+      "name": "on",
+      "src": "img/on.png"
+    },
+    {
+      "name": "off",
+      "src": "img/off.png"
+    },
+    {
+      "name": "bgSky",
+      "src": "img/bg/bgSky.png"
+    },
+    {
+      "name": "bgGround",
+      "src": "img/bg/bgGround.png"
+    },
+    {
+      "name": "p1s1",
+      "src": "img/page1/p1s1.png"
+    },
+    {
+      "name": "p1s2",
+      "src": "img/page1/p1s2.png"
+    },
+    {
+      "name": "p1s3",
+      "src": "img/page1/p1s3.png"
+    },
+    {
+      "name": "suitcase",
+      "src": "img/page1/suitcase.png"
+    },
+    {
+      "name": "p2s0",
+      "src": "img/page2/p2s0.png"
+    },
+    {
+      "name": "p2s1",
+      "src": "img/page2/p2s1.png"
+    },
+    {
+      "name": "p2s2",
+      "src": "img/page2/p2s2.png"
+    },
+    {
+      "name": "p2s3",
+      "src": "img/page2/p2s3.png"
+    },
+    {
+      "name": "p2s4",
+      "src": "img/page2/p2s4.png"
+    },
+    {
+      "name": "p2s5",
+      "src": "img/page2/p2s5.png"
+    },
+    {
+      "name": "p2s6",
+      "src": "img/page2/p2s6.png"
+    },
+    {
+      "name": "p3s1",
+      "src": "img/page3/1.png"
+    },
+    {
+      "name": "p3s2",
+      "src": "img/page3/2.png"
+    },
+    {
+      "name": "p3s3",
+      "src": "img/page3/3.png"
+    },
+    {
+      "name": "p3s4",
+      "src": "img/page3/4.png"
+    },
+    {
+      "name": "p3s5",
+      "src": "img/page3/5.png"
+    },
+    {
+      "name": "p3s6",
+      "src": "img/page3/6.png"
+    },
+    {
+      "name": "p3txt1",
+      "src": "img/page3/txt1.png"
+    },
+    {
+      "name": "p3txt2",
+      "src": "img/page3/txt2.png"
+    },
+    {
+      "name": "p3txt3",
+      "src": "img/page3/txt3.png"
+    },
+    {
+      "name": "p3txt4",
+      "src": "img/page3/txt4.png"
+    },
+    {
+      "name": "p3txt5",
+      "src": "img/page3/txt5.png"
+    },
+    {
+      "name": "p3txt6",
+      "src": "img/page3/txt6.png"
+    },
+    {
+      "name": "p4s1",
+      "src": "img/page4/1.png"
+    },
+    {
+      "name": "p4s2",
+      "src": "img/page4/2.png"
+    },
+    {
+      "name": "p4s3",
+      "src": "img/page4/3.png"
+    },
+    {
+      "name": "p4s4",
+      "src": "img/page4/4.png"
+    },
+    {
+      "name": "p4s5",
+      "src": "img/page4/5.png"
+    },
+    {
+      "name": "p4s6",
+      "src": "img/page4/6.png"
+    },
+    {
+      "name": "p4s6",
+      "src": "img/page4/blue.jpg"
+    },
+    {
+      "name": "p5s1",
+      "src": "img/page5/1.png"
+    },
+    {
+      "name": "p5s2",
+      "src": "img/page5/2.png"
+    },
+    {
+      "name": "p5s3",
+      "src": "img/page5/3.png"
+    },
+    {
+      "name": "p5s4",
+      "src": "img/page5/4.png"
+    },
+    {
+      "name": "p6btn1",
+      "src": "img/page6/btn1.png"
+    },
+    {
+      "name": "p6btn2",
+      "src": "img/page6/btn2.png"
+    },
+    {
+      "name": "p6btn3",
+      "src": "img/page6/btn3.png"
+    },
+    {
+      "name": "p6jimi",
+      "src": "img/page6/jimi.png"
+    },
+    {
+      "name": "p6logo",
+      "src": "img/page6/logo.png"
+    },
+    {
+      "name": "p6share",
+      "src": "img/page6/share.png"
+    }
+  ]
+}

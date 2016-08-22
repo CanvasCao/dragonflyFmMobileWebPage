@@ -136,6 +136,10 @@
 
             //索引............
             var picNum = $(this).attr('data');
+            //setTimeout(function () {
+            $('#audio' + picNum)[0].play();
+            //}, 2500);
+
 
             //点击以后父元素回到中间
             $parent.velocity({
@@ -178,9 +182,6 @@
 
 
     function In() {
-        setTimeout(function () {
-            $('#audiopangbai3')[0].play();
-        }, 500)
         initCss();
         bindEvent();
         initPos();

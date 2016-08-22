@@ -101,7 +101,7 @@
         $page.find('#suitcase').click(function () {
             DoPageChange(GM.pageIndex + 1);
 
-                $('#audiopangbai2')[0].play();
+            $('#audiopangbai2')[0].play();
         })
     }
 

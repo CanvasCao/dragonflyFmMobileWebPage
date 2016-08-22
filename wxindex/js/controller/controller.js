@@ -5,6 +5,7 @@
     var controller = {};
 
     controller.getProducts = function () {
+
         $.ajax({
             type: "post",
             url: 'http://n1.jimi.la/openApiUrl/getOpenApiUrl.php',

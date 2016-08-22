@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"/>
+
+    <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="css/loading.css"/>
+    <link rel="shortcut icon" href="img/300plus.png">
+    <style type="text/css">
+
+        #container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            opacity: 0;
+        }
+
+        .page {
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            position: absolute;
+            /*perspective: 1000px;*/
+            overflow: hidden;
+        }
+
+        .up {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 50px;
+            border: 1px solid #000;
+        }
+
+        .down {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 50px;
+            border: 1px solid #000;
+        }
+
+        /*加载的icon的CSS*/
+        .page4 > img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            opacity: 0;
+        }
+
+    </style>
+
+    <title>别让你的脸，配不上你想去的景点</title>
+</head>
+<body>
+
+<img src="img/300plus.png" width="0" height="0"/>
+
+<div id='container'>
+    <div class='page page1'>
+        <!--<div class='up'>1</div>-->
+        <!--<div class='down'>1</div>-->
+    </div>
+    <div class='page page2'></div>
+    <div class='page page3'></div>
+    <div class='page page4'></div>
+    <div class='page page5'></div>
+    <div class='page page6'></div>
+</div>
+<div id='loading'>
+    <img class='loadingLogo' src="img/logo.png"/>
+    <img class='loadingDragonfly' src="img/flydragon/1.png"/>
+    <img style="display: none" src="img/flydragon/2.png"/>
+    <img style="display: none" src="img/flydragon/3.png"/>
+    <img style="display: none" src="img/flydragon/4.png"/>
+
+    <div class='loadingCount'></div>
+</div>
+
+<img class='bgm'/>
+
+
+<script src="http://apps.bdimg.com/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src='js/tool/velocity.min.js'></script>
+<script src='js/tool/velocity.ui.js'></script>
+<script src='js/globalManager/globalManager.js'></script>
+<script src='js/controller/controller.js'></script>
+<script src='js/resources/resources.js'></script>
+<script src='js/tool/fastclick.js'></script>
+<script src='js/page/index.js'></script>
+<script src='js/page/page1.js'></script>
+<script src='js/page/page2.js'></script>
+<script src='js/page/page3.js'></script>
+<script src='js/page/page4.js'></script>
+<script src='js/page/page5.js'></script>
+<script src='js/page/page6.js'></script>
+<!--<script src='js/wx/jweixin-1.0.0.js'></script>-->
+
+
+<script>
+    $(function () {
+        controller.dadian();
+
+        //FastClick.....................................................
+        FastClick.attach(document.body);
+
+        //JqObj................................
+        var $loading = $('#loading');
+        var $loadingDragonfly = $loading.find('.loadingDragonfly');
+        var $loadingCount = $loading.find('.loadingCount');
+        var $loadingLogo = $loading.find('.loadingLogo');
+        var timer = null;
+        var timer2 = null;
+        var timer2Index = 1;
+        var ease = 'easeInOutQuart';
+
+
+        //localStroage...............
+        var jimiProducts = localStorage.getItem('jimiProducts');
+
+        //加载过产品...
+        if (jimiProducts) {
+            $('#container').velocity({opacity: 1}, 1000, ease);
+            $loading.velocity({opacity: 1, translateY: -$(window).height()}, 0);
+            GM.$pages.eq(5).velocity({translateY: 0}, 0);
+            AnimateInArr[5](true);//true代表直接加载
+        }
+        //没有加载过产品...
+        else {
+            $loading.velocity({opacity: 1}, 1500, 'ease', function () {
+                afterLoadingAppear();
+            });
+
+            //loading页淡入后开始增加渐变....................................
+            function afterLoadingAppear() {
+                //蜻蜓飞入.................................................
+                $loadingDragonfly
+                        .velocity({top: '0%', left: '100%'}, 0)
+                        .velocity({top: '20%', left: '70%'}, 600, ease)
+                        .velocity({top: '50%', left: '50%'}, 600, ease, function () {
+                            //飞入后开始加载..................................
+                            timer = setInterval(function () {
+                                $loadingLogo.velocity({
+                                    rotateZ: '+=120',
+                                }, {duration: 200, easing: 'linear'});
+                            }, 201);
+                            timer2 = setInterval(function () {
+                                $loadingDragonfly.attr({src: 'img/flydragon/' + timer2Index + '.png'});
+                                timer2Index++;
+                                timer2Index = (timer2Index >= 4) ? 1 : timer2Index;
+                            }, 40);
+
+
+                            $loadingCount.html('0%');
+                            //同时开始加载资源.................................
+                            var resource = new Resources('package.json', function (alreayLoadNumber, totalNum, imgsArray) {
+
+                                if (alreayLoadNumber != totalNum) {
+                                    var num = (alreayLoadNumber / totalNum) > 1 ? 1 : (alreayLoadNumber / totalNum);
+                                    $loadingCount.html(parseInt(num * 100) + '%');
+                                }
+                                else if (alreayLoadNumber == totalNum) {
+
+                                    $('#container').velocity({opacity: 1}, 1000, ease, function () {
+                                        $loadingCount.html('100%');
+                                        clearInterval(timer);//logo停
+                                        clearInterval(timer2);//蜻蜓停
+
+
+                                        //停止运动 移动到第一页
+                                        setTimeout(function () {
+                                            $loading.delay(0).velocity({translateY: -$(window).height()}, 'normal', ease);
+                                            DoPageChange(0);
+                                        }, 0);
+                                    });
+                                }
+                            })
+                        });
+
+            }
+        }
+
+    })
+</script>
+</body>
+</html>

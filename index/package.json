@@ -59,6 +59,10 @@
     {
       "name": "pangbai3",
       "src": "audio/pangbai3.mp3"
+    },
+    {
+      "name": "pangbai4",
+      "src": "audio/pangbai4.mp3"
     }
   ],
   "images": [

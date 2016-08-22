@@ -416,13 +416,16 @@
             appendIcon(picNum);
 
 
-
-
             //第三页换第四页............
+            //setTimeout(function () {
+            //    console.log(GM.form);
+            //    DoPageChange(GM.pageIndex + 1);
+            //}, (audioLengthArray[picNum]+3)*1000);
+
             setTimeout(function () {
                 console.log(GM.form);
                 DoPageChange(GM.pageIndex + 1);
-            }, (audioLengthArray[picNum]+3)*1000);
+            }, 7000);
         });
     }
 

@@ -130,6 +130,11 @@
                 resetQuestionOpacity();
             });
         })
+
+
+        $page.find('.question2 div').click(function () {
+            $('#audiopangbai3')[0].play();
+        })
     }
 
     BindEvent();
@@ -140,7 +145,7 @@
 
         setTimeout(function(){
             $('#audiopangbai2')[0].play();
-        },400);
+        },1);
 
         $page.find('#p2Title').eq(0).delay(0)
             .velocity({translateX: '-50%'}, 0)

@@ -39,7 +39,7 @@
             top: '3%',
             left: '50%',
             'font-size': '12px',
-            color: '#ccc',
+            color: '#aaa',
             opacity: 0,
         })
 

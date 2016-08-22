@@ -1,0 +1,43 @@
+
+#loading {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    /*background-image: linear-gradient(to top, #171c33, #2e48aa);*/
+}
+
+.loadingDragonfly {
+    position: absolute;
+    /*top: 50%;*/
+    /*left: 50%;*/
+    margin-left: -12px;
+    margin-top: -84px;
+    width: 60px;
+    opacity: 0.8;
+}
+
+.loadingLogo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -50px;
+    margin-top: -50px;
+    /*transform: translateX(-50px) translateY(-50px);*/
+    width: 100px;
+}
+
+.loadingCount {
+    color: #333;
+    font-size: 12px;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50px) translateY(60px);
+    -webkit-transform: translateX(-50px) translateY(60px);
+}

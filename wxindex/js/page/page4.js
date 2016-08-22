@@ -416,18 +416,12 @@
             appendIcon(picNum);
 
 
-            //$('audio').eq(picNum - 1)[0].load();
-            //读字
-            setTimeout(function () {
-                $('#audio'+picNum)[0].play();
-            }, 1000);
-
-
             //第三页换第四页............
             setTimeout(function () {
                 console.log(GM.form);
                 DoPageChange(GM.pageIndex + 1);
             }, (audioLengthArray[picNum]+3)*1000);
+
         });
     }
 

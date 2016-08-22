@@ -138,6 +138,7 @@
             var picNum = $(this).attr('data');
             //setTimeout(function () {
             $('#audio' + picNum)[0].play();
+            $('#audiopangbai4')[0].play();
             //}, 2500);
 
 
