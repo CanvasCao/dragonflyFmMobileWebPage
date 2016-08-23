@@ -94,28 +94,28 @@
         $page.find('#p5s1').delay(0)
             .velocity({
                 left: '-100%',
-            }, 24000,'linear');
+            }, 16000,'linear');
 
 
-        $page.find('#p5s2').delay(delay+=1500)
+        $page.find('#p5s2').delay(delay+=2000)
             .velocity({
                 left: '-100%',
-            }, 24000,'linear');
+            }, 16000,'linear');
 
-        $page.find('#p5s3').delay(delay+=1500)
+        $page.find('#p5s3').delay(delay+=2000)
             .velocity({
                 left: '-100%',
-            }, 24000,'linear');
+            }, 16000,'linear');
 
-        $page.find('#p5s4').delay(delay+=1500)
+        $page.find('#p5s4').delay(delay+=2000)
             .velocity({
                 left: '-100%',
-            }, 24000,'linear');
+            }, 16000,'linear');
 
-        $page.find('#p5s5').delay(delay+=2500)
+        $page.find('#p5s5').delay(delay+=2000)
             .velocity({
                 left: '-100%',
-            }, 24000,'linear');
+            }, 16000,'linear');
 
 
         setTimeout(function(){

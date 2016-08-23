@@ -1,5 +1,7 @@
 //$.Velocity.mock=0.5;
 //jqObj................................
+GM.visitId = null;
+
 GM.$up = $('.up');
 GM.$down = $('.down');
 GM.$pages = $('.page');
@@ -66,7 +68,6 @@ function DoPageChange(newIndex, duration) {
     //翻页截流.......................................
     setTimeout(function () {
         GM.isConVelocited = false;
-
 
         //进场入场动画...................................
         if (AnimateOutArr[oldIndex]) {

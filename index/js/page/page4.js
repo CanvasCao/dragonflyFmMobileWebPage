@@ -399,8 +399,7 @@
 
         picNum = num || 3;
 
-        GM.form.envment = picNum;
-        controller.getProducts();
+
 
 
         //动态设置图片...............

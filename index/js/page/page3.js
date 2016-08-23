@@ -136,6 +136,15 @@
 
             //索引............
             var picNum = $(this).attr('data');
+            GM.form.envment = picNum;
+
+            controller.postAnswer({
+                visitId: GM.visitId,
+                question: 'envment',
+                answer: picNum,
+            })
+
+
             //setTimeout(function () {
             $('#audio' + picNum)[0].play();
             $('#audiopangbai4')[0].play();

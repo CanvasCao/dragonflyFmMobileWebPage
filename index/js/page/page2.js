@@ -108,6 +108,11 @@
 
             //记录接口参数.....................................
             GM.form[$(that).attr('datakey')] = $(that).attr('datavalue');
+            controller.postAnswer({
+                visitId: GM.visitId,
+                question: $(that).attr('datakey'),
+                answer: $(that).attr('datavalue'),
+            })
 
             //未选中的消失
             $(that).siblings().velocity({opacity: 0}, 200, 'slow', function () {
